@@ -6,11 +6,14 @@ import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { useMobile } from "@/hooks/use-mobile"
+import { LanguageToggle } from "@/components/language-toggle"
+import { useLanguage } from "@/contexts/language-context"
+import useMobile from "@/hooks/use-mobile"
 
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useLanguage()
   const isMobile = useMobile()
 
   useEffect(() => {
@@ -27,11 +30,11 @@ export function FloatingNav() {
   }, [])
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.experience"), href: "#experience" },
+    { name: t("nav.contact"), href: "#contact" },
   ]
 
   const handleNavClick = () => {
@@ -54,23 +57,26 @@ export function FloatingNav() {
           {isMobile ? (
             <div className="relative flex items-center justify-between">
               <Link href="/" className="font-bold text-lg">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">Alex</span>
-                <span className="text-white">Chen</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">My</span>
+                <span className="text-white">Hextech</span>
               </Link>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-zinc-400 hover:text-white hover:bg-zinc-700/50"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+              <div className="flex items-center gap-2">
+                <LanguageToggle />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-zinc-400 hover:text-white hover:bg-zinc-700/50"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </Button>
+              </div>
             </div>
           ) : (
             <div className="relative flex items-center gap-1">
               <Link href="/" className="font-bold text-lg mr-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">Alex</span>
-                <span className="text-white">Chen</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">My</span>
+                <span className="text-white">Hextech</span>
               </Link>
               {navItems.map((item) => (
                 <Link
@@ -82,12 +88,15 @@ export function FloatingNav() {
                   {item.name}
                 </Link>
               ))}
-              <Button
-                size="sm"
-                className="ml-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
-              >
-                Resume
-              </Button>
+              <LanguageToggle />
+              <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="sm"
+                  className="ml-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
+                >
+                  {t("nav.resume")}
+                </Button>
+              </Link>
             </div>
           )}
         </div>
@@ -112,9 +121,11 @@ export function FloatingNav() {
                 {item.name}
               </Link>
             ))}
-            <Button className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0">
-              Resume
-            </Button>
+            <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
+              <Button className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0">
+                {t("nav.resume")}
+              </Button>
+            </Link>
           </div>
         </motion.div>
       )}

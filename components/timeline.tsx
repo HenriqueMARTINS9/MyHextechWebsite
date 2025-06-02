@@ -1,35 +1,27 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useMobile } from "@/hooks/use-mobile"
+import useMobile from "@/hooks/use-mobile"
 
 const experiences = [
   {
-    title: "Senior Frontend Engineer",
-    company: "Tech Innovations Inc.",
-    period: "2021 - Present",
-    description:
-      "Lead the frontend development team in building a SaaS platform. Implemented new features, improved performance, and mentored junior developers.",
+    title: "Freelance Developer",
+    company: "Self-employed",
+    period: "2024 - Present",
+    description: "Working as a freelance developer specializing in web, applications, and 3D development.",
   },
   {
-    title: "Frontend Developer",
-    company: "Digital Solutions Co.",
+    title: "Developer Engineer 3D and Web",
+    company: "Cobalt",
+    period: "2021 - 2024",
+    description:
+      "Completed ESIEE computer engineering and development diploma while working as a Developer Engineer focusing on 3D and web technologies.",
+  },
+  {
+    title: "Computer Scientist",
+    company: "CAPMONDE",
     period: "2019 - 2021",
-    description:
-      "Developed responsive web applications using React and TypeScript. Collaborated with designers and backend engineers to deliver high-quality products.",
-  },
-  {
-    title: "Web Developer",
-    company: "Creative Agency",
-    period: "2017 - 2019",
-    description:
-      "Built websites and web applications for various clients. Worked with HTML, CSS, JavaScript, and WordPress.",
-  },
-  {
-    title: "Intern",
-    company: "Startup Hub",
-    period: "2016 - 2017",
-    description: "Assisted in developing web applications and learned modern web development practices.",
+    description: "Completed ESIEE BTS SNIR Apprenticeship while working as a computer scientist.",
   },
 ]
 

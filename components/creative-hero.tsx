@@ -57,12 +57,12 @@ export function CreativeHero() {
         this.y = y
         this.baseX = x
         this.baseY = y
-        this.size = Math.random() * 5 + 2
+        this.size = Math.random() * 3 + 1
         this.density = Math.random() * 30 + 1
         this.distance = 0
 
-        // Create a gradient from purple to pink
-        const hue = Math.random() * 60 + 200 // 270-330 range for purples and pinks
+        // Create a gradient from blue to cyan
+        const hue = Math.random() * 60 + 200 // 200-260 range for blues and cyans
         this.color = `hsl(${hue}, 70%, 60%)`
       }
 
@@ -105,10 +105,8 @@ export function CreativeHero() {
       }
     }
 
-    // Create particle grid
+    // Create particle text
     const particlesArray: Particle[] = []
-    const particleCount = 1000
-    const gridSize = 30
 
     function init() {
       particlesArray.length = 0
@@ -116,14 +114,26 @@ export function CreativeHero() {
       const canvasWidth = canvas.width / devicePixelRatio
       const canvasHeight = canvas.height / devicePixelRatio
 
-      const numX = Math.floor(canvasWidth / gridSize)
-      const numY = Math.floor(canvasHeight / gridSize)
+      // Create text
+      ctx.fillStyle = "white"
+      ctx.font = "bold 120px Arial"
+      ctx.textAlign = "center"
+      ctx.fillText("MyHextech", canvasWidth / 2, canvasHeight / 2)
 
-      for (let y = 0; y < numY; y++) {
-        for (let x = 0; x < numX; x++) {
-          const posX = x * gridSize + gridSize / 2
-          const posY = y * gridSize + gridSize / 2
-          particlesArray.push(new Particle(posX, posY))
+      // Get image data
+      const textCoordinates = ctx.getImageData(0, 0, canvasWidth, canvasHeight)
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+
+      // Create particles based on text pixels
+      for (let y = 0; y < textCoordinates.height; y += 8) {
+        for (let x = 0; x < textCoordinates.width; x += 8) {
+          if (textCoordinates.data[y * 4 * textCoordinates.width + x * 4 + 3] > 128) {
+            const positionX = x
+            const positionY = y
+            particlesArray.push(new Particle(positionX, positionY))
+          }
         }
       }
     }

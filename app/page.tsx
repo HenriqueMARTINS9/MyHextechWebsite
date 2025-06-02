@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
 
@@ -8,16 +10,21 @@ import { Timeline } from "@/components/timeline"
 import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
+import { TopHeader } from "@/components/top-header"
 import { MouseFollower } from "@/components/mouse-follower"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Portfolio() {
+  const { t } = useLanguage()
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
       <MouseFollower />
       <ScrollProgress />
+      <TopHeader />
       <FloatingNav />
 
       {/* Hero Section */}
@@ -32,23 +39,22 @@ export default function Portfolio() {
           <div className="space-y-6">
             <div className="inline-block">
               <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
-                <span className="relative z-10">Software Engineer & Creative Developer</span>
+                <span className="relative z-10">{t("hero.subtitle")}</span>
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 animate-pulse"></span>
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              <span className="block">Hi, I'm</span>
+              <span className="block">{t("hero.greeting")}</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">
-                Shine Kyaw Kyaw Aung
+                Henrique MARTINS
               </span>
             </h1>
-            <p className="text-xl text-zinc-400 max-w-[600px]">
-              I craft exceptional digital experiences with code, creativity, and a passion for innovation.
-            </p>
+            <p className="text-xl text-zinc-400 max-w-[600px]">{t("hero.description")}</p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button className="relative overflow-hidden group bg-gradient-to-r from-blue-500 to-cyan-500 border-0">
                 <span className="relative z-10 flex items-center">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {t("hero.viewProjects")}{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
               </Button>
@@ -56,11 +62,11 @@ export default function Portfolio() {
                 variant="outline"
                 className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
               >
-                Contact Me
+                <span className="text-blue-400">{t("hero.contactMe")}</span>
               </Button>
             </div>
             <div className="flex gap-4 pt-4">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/HenriqueMARTINS9" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -70,7 +76,7 @@ export default function Portfolio() {
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -90,7 +96,7 @@ export default function Portfolio() {
                   <span className="sr-only">Twitter</span>
                 </Button>
               </Link>
-              <Link href="mailto:hello@example.com">
+              <Link href="mailto:henrique.mar@outlook.fr">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -122,7 +128,7 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="About Me" subtitle="My background and journey" />
+          <SectionHeading title={t("about.title")} subtitle={t("about.subtitle")} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
@@ -130,14 +136,14 @@ export default function Portfolio() {
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
                   src="/placeholder.svg?height=600&width=600"
-                  alt="Shine Kyaw Kyaw Aung"
+                  alt="Henrique MARTINS"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="text-sm font-medium">Available for work</span>
+                    <span className="text-sm font-medium">{t("about.availableForWork")}</span>
                   </div>
                 </div>
               </div>
@@ -145,41 +151,31 @@ export default function Portfolio() {
 
             <div className="space-y-6">
               <GlassmorphicCard>
-                <p className="text-lg text-zinc-300">
-                  I'm a passionate software engineer with experience building web applications and digital products. I
-                  specialize in frontend development with React and Next.js, but I'm also comfortable working with
-                  backend technologies.
-                </p>
-                <p className="text-lg text-zinc-300 mt-4">
-                  My journey in tech started with a strong foundation in software development. I've worked with various
-                  companies to create intuitive, performant, and accessible digital experiences.
-                </p>
-                <p className="text-lg text-zinc-300 mt-4">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
-                  and staying up-to-date with the latest industry trends.
-                </p>
+                <p className="text-lg text-zinc-300">{t("about.description1")}</p>
+                <p className="text-lg text-zinc-300 mt-4">{t("about.description2")}</p>
+                <p className="text-lg text-zinc-300 mt-4">{t("about.description3")}</p>
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Name</div>
-                    <div className="font-medium">Shine Kyaw Kyaw Aung</div>
+                    <div className="text-sm text-zinc-500">{t("about.name")}</div>
+                    <div className="font-medium">Henrique MARTINS</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">hello@example.com</div>
+                    <div className="text-sm text-zinc-500">{t("about.email")}</div>
+                    <div className="font-medium">henrique.mar@outlook.fr</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Location</div>
-                    <div className="font-medium">Myanmar</div>
+                    <div className="text-sm text-zinc-500">{t("about.location")}</div>
+                    <div className="font-medium">Saint-Denis-les-Ponts</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Availability</div>
-                    <div className="font-medium text-green-500">Open to opportunities</div>
+                    <div className="text-sm text-zinc-500">{t("about.availability")}</div>
+                    <div className="font-medium text-green-500">{t("about.availabilityStatus")}</div>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">Download Resume</Button>
+                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">{t("about.downloadResume")}</Button>
                 </div>
               </GlassmorphicCard>
             </div>
@@ -195,7 +191,7 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="My Skills" subtitle="Technologies I work with" />
+          <SectionHeading title={t("skills.title")} subtitle={t("skills.subtitle")} />
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
             <SkillBadge name="JavaScript" level={90} />
@@ -222,7 +218,7 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
+          <SectionHeading title={t("projects.title")} subtitle={t("projects.subtitle")} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
@@ -285,7 +281,7 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Work Experience" subtitle="My professional journey" />
+          <SectionHeading title={t("experience.title")} subtitle={t("experience.subtitle")} />
 
           <div className="mt-16">
             <Timeline />
@@ -301,19 +297,19 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Get In Touch" subtitle="Let's work together" />
+          <SectionHeading title={t("contact.title")} subtitle={t("contact.subtitle")} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <GlassmorphicCard>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold mb-6">{t("contact.info")}</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
                     <Mail className="h-5 w-5 text-blue-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">hello@example.com</div>
+                    <div className="text-sm text-zinc-500">{t("about.email")}</div>
+                    <div className="font-medium">henrique.mar@outlook.fr</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -322,7 +318,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">linkedin.com/in/shinekyawkyawaung</div>
+                    <div className="font-medium">linkedin.com/in/henrique-martins9</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -331,16 +327,16 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">GitHub</div>
-                    <div className="font-medium">github.com/shinekyawkyawaung</div>
+                    <div className="font-medium">github.com/HenriqueMARTINS9</div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-8 border-t border-zinc-800">
-                <h4 className="text-lg font-medium mb-4">Current Status</h4>
+                <h4 className="text-lg font-medium mb-4">{t("contact.currentStatus")}</h4>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                  <span>Available for freelance work and full-time opportunities</span>
+                  <span>{t("contact.statusMessage")}</span>
                 </div>
               </div>
             </GlassmorphicCard>
@@ -355,15 +351,15 @@ export default function Portfolio() {
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">Shine</span>
-              <span className="text-white">KKA</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">My</span>
+              <span className="text-white">Hextech</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              © {new Date().getFullYear()} Shine Kyaw Kyaw Aung. All rights reserved.
+              © {new Date().getFullYear()} Henrique MARTINS. {t("footer.rights")}
             </p>
           </div>
           <div className="flex gap-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/HenriqueMARTINS9" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -373,7 +369,7 @@ export default function Portfolio() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -393,7 +389,7 @@ export default function Portfolio() {
                 <span className="sr-only">Twitter</span>
               </Button>
             </Link>
-            <Link href="mailto:hello@example.com">
+            <Link href="mailto:henrique.mar@outlook.fr">
               <Button
                 variant="ghost"
                 size="icon"
