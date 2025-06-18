@@ -77,7 +77,7 @@ const translations = {
 
     // Hero Section
     "hero.subtitle": "Ingénieur Logiciel & Développeur Créatif",
-    "hero.greeting": "Salut, je suis",
+    "hero.greeting": "Bonjour, je suis",
     "hero.description":
       "Je crée des expériences numériques exceptionnelles avec du code, de la créativité et une passion pour l'innovation.",
     "hero.viewProjects": "Voir les Projets",
@@ -87,11 +87,11 @@ const translations = {
     "about.title": "À Propos de Moi",
     "about.subtitle": "Mon parcours et mon histoire",
     "about.description1":
-      "Je suis un ingénieur logiciel passionné avec de l'expérience dans la création d'applications web et de produits numériques. Je me spécialise dans le développement frontend avec React et Next.js, mais je suis aussi à l'aise avec les technologies backend.",
+      "Je suis un ingénieur logiciel passionné avec une expertise en développement web, applications 3D et solutions numériques créatives. Je me spécialise dans les technologies web modernes incluant React, Next.js et TypeScript, tout en ayant une solide expérience en développement 3D et applications interactives.",
     "about.description2":
-      "Mon parcours dans la tech a commencé avec une base solide en développement logiciel. J'ai travaillé avec diverses entreprises pour créer des expériences numériques intuitives, performantes et accessibles.",
+      "Mon parcours professionnel inclut le travail en tant qu'Ingénieur Développeur spécialisé dans les technologies 3D et web chez Cobalt, où j'ai complété mon diplôme d'ingénieur informatique ESIEE. J'ai également acquis une expérience précieuse en tant qu'informaticien chez CAPMONDE pendant mon apprentissage BTS SNIR ESIEE.",
     "about.description3":
-      "Quand je ne code pas, vous pouvez me trouver en train d'explorer de nouvelles technologies, de contribuer à des projets open-source, et de rester à jour avec les dernières tendances de l'industrie.",
+      "Travaillant actuellement en tant que développeur freelance, je suis passionné par la création d'expériences numériques innovantes qui combinent excellence technique et vision créative. J'explore constamment de nouvelles technologies et reste à jour avec les tendances de l'industrie pour livrer des solutions de pointe.",
     "about.name": "Nom",
     "about.email": "Email",
     "about.location": "Localisation",
@@ -107,10 +107,27 @@ const translations = {
     // Projects Section
     "projects.title": "Projets en Vedette",
     "projects.subtitle": "Quelques-uns de mes travaux récents",
+    "projects.decentraland": "Métaverse Decentraland",
+    "projects.unity": "Jeux Unity & Apps Telegram",
+    "projects.unreal": "Jeux Unreal Engine 5",
+    "projects.telegram": "Bot de Chat IA Telegram",
+    "projects.wanteed": "Application Wanteed",
+    "projects.framer": "Site Vitrine Framer",
 
     // Experience Section
     "experience.title": "Expérience Professionnelle",
     "experience.subtitle": "Mon parcours professionnel",
+    "experience.freelance.title": "Développeur Freelance",
+    "experience.freelance.company": "Indépendant",
+    "experience.freelance.description":
+      "Travaille en tant que développeur freelance spécialisé dans le développement web, d'applications et 3D.",
+    "experience.cobalt.title": "Ingénieur Développeur 3D et Web",
+    "experience.cobalt.company": "Cobalt",
+    "experience.cobalt.description":
+      "Diplôme d'ingénieur informatique et développement ESIEE complété tout en travaillant comme Ingénieur Développeur spécialisé dans les technologies 3D et web.",
+    "experience.capmonde.title": "Informaticien",
+    "experience.capmonde.company": "CAPMONDE",
+    "experience.capmonde.description": "Apprentissage BTS SNIR ESIEE complété tout en travaillant comme informaticien.",
 
     // Contact Section
     "contact.title": "Entrer en Contact",
@@ -118,6 +135,7 @@ const translations = {
     "contact.info": "Informations de Contact",
     "contact.currentStatus": "Statut Actuel",
     "contact.statusMessage": "Disponible pour du travail freelance et des opportunités à temps plein",
+    "contact.sendMessage": "Envoyer un Message",
 
     // Footer
     "footer.rights": "Tous droits réservés.",
@@ -127,7 +145,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>("fr")
 
   const t = (key: string): string => {
     return translations[language][key as keyof (typeof translations)["en"]] || key

@@ -2,17 +2,18 @@
 
 import { motion } from "framer-motion"
 import useMobile from "@/hooks/use-mobile"
+import { useLanguage } from "@/contexts/language-context"
 
 const experiences = [
   {
     title: "Freelance Developer",
-    company: "Self-employed",
-    period: "2024 - Present",
-    description: "Working as a freelance developer specializing in web, applications, and 3D development.",
+    company: "MyHextech",
+    period: "2025 - Present",
+    description: "Auto-entrepreneur in web, 2D & 3D development and applications.",
   },
   {
     title: "Developer Engineer 3D and Web",
-    company: "Cobalt",
+    company: "FR INVEST",
     period: "2021 - 2024",
     description:
       "Completed ESIEE computer engineering and development diploma while working as a Developer Engineer focusing on 3D and web technologies.",
@@ -25,8 +26,33 @@ const experiences = [
   },
 ]
 
+const frenchExperiences = [
+  {
+    title: "Développeur Freelance",
+    company: "MyHextech",
+    period: "2025 - Présent",
+    description: "Auto-entrepreneur dans le développement web, 2D & 3D et d'applications.",
+  },
+  {
+    title: "Ingénieur Développeur 3D et Web",
+    company: "FR INVEST",
+    period: "2021 - 2024",
+    description:
+      "Diplôme d'ingénieur informatique et développement ESIEE complété tout en travaillant comme Ingénieur Développeur spécialisé dans les technologies 3D et web.",
+  },
+  {
+    title: "Informaticien",
+    company: "CAPMONDE",
+    period: "2019 - 2021",
+    description: "Apprentissage BTS SNIR ESIEE complété tout en travaillant comme informaticien.",
+  },
+]
+
 export function Timeline() {
   const isMobile = useMobile()
+  const { language } = useLanguage()
+
+  const currentExperiences = language === "en" ? experiences : frenchExperiences
 
   return (
     <div
@@ -36,7 +62,7 @@ export function Timeline() {
           : ""
       }`}
     >
-      {experiences.map((experience, index) => (
+      {currentExperiences.map((experience, index) => (
         <div
           key={index}
           className={`relative z-10 flex items-center ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}

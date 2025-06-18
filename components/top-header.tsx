@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { LanguageToggle } from "@/components/language-toggle"
@@ -88,16 +88,6 @@ export function TopHeader() {
                 >
                   <Linkedin className="h-4 w-4" />
                   <span className="sr-only">LinkedIn</span>
-                </Button>
-              </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-8 w-8 text-zinc-400 hover:text-white hover:bg-zinc-800"
-                >
-                  <Twitter className="h-4 w-4" />
-                  <span className="sr-only">Twitter</span>
                 </Button>
               </Link>
               <Link href="mailto:henrique.mar@outlook.fr">

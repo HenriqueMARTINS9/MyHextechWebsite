@@ -10,10 +10,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
+import { useLanguage } from "@/contexts/language-context"
 
 export function ContactForm() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { language } = useLanguage()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -23,8 +25,11 @@ export function ContactForm() {
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
     toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      title: language === "en" ? "Message sent!" : "Message envoyé !",
+      description:
+        language === "en"
+          ? "Thanks for reaching out. I'll get back to you soon."
+          : "Merci de m'avoir contacté. Je vous répondrai bientôt.",
     })
 
     setIsSubmitting(false)
@@ -42,12 +47,12 @@ export function ContactForm() {
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
 
         <div className="relative">
-          <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+          <h3 className="text-2xl font-bold mb-6">{language === "en" ? "Send Me a Message" : "Envoyer un Message"}</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Input
-                placeholder="Your Name"
+                placeholder={language === "en" ? "Your Name" : "Votre Nom"}
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
               />
@@ -55,21 +60,21 @@ export function ContactForm() {
             <div className="space-y-2">
               <Input
                 type="email"
-                placeholder="Your Email"
+                placeholder={language === "en" ? "Your Email" : "Votre Email"}
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
               />
             </div>
             <div className="space-y-2">
               <Input
-                placeholder="Subject"
+                placeholder={language === "en" ? "Subject" : "Sujet"}
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
               />
             </div>
             <div className="space-y-2">
               <Textarea
-                placeholder="Your Message"
+                placeholder={language === "en" ? "Your Message" : "Votre Message"}
                 rows={5}
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
@@ -81,10 +86,14 @@ export function ContactForm() {
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                <>Sending...</>
+                language === "en" ? (
+                  <>Sending...</>
+                ) : (
+                  <>Envoi en cours...</>
+                )
               ) : (
                 <>
-                  Send Message <Send className="ml-2 h-4 w-4" />
+                  {language === "en" ? "Send Message" : "Envoyer le Message"} <Send className="ml-2 h-4 w-4" />
                 </>
               )}
             </Button>

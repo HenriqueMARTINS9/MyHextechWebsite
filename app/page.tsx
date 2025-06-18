@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
@@ -18,7 +18,55 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function Portfolio() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+
+  // Smooth scroll functions
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const downloadCV = () => {
+    const link = document.createElement("a")
+    link.href = "/cv-henrique-martins.pdf"
+    link.download = "CV-Henrique-MARTINS.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  // Project descriptions in both languages
+  const projectDescriptions = {
+    en: {
+      decentralandMetaverse:
+        "Development of metaverse experiences and mini-games on the Decentraland platform with immersive 3D environments.",
+      unityGames: "3D and 2D game development on Unity with WebGL deployment and Telegram App integration.",
+      unrealEngine:
+        "Immersive games and universes built with Unreal Engine 5, featuring AWS GameLift and PixelStreaming technology.",
+      telegramBot:
+        "AI-powered Telegram chat bot with API account connection and comprehensive user usage tracking system.",
+      wanteedApp:
+        "Complete mobile application redesign with UI/UX optimization, user logic modification for free and premium users, and iOS/Android store deployment.",
+      framerShowcase:
+        "Modern showcase website built with Framer for a Telegram Game project, featuring responsive design and smooth animations.",
+    },
+    fr: {
+      decentralandMetaverse:
+        "Développement d'expériences métaverse et de mini-jeux sur la plateforme Decentraland avec des environnements 3D immersifs.",
+      unityGames:
+        "Développement de jeux 3D et 2D sur Unity avec déploiement WebGL et intégration d'applications Telegram.",
+      unrealEngine:
+        "Jeux et univers immersifs construits avec Unreal Engine 5, utilisant AWS GameLift et la technologie PixelStreaming.",
+      telegramBot:
+        "Bot de chat IA Telegram avec connexion de compte API et système complet de suivi d'utilisation utilisateur.",
+      wanteedApp:
+        "Refonte complète d'application mobile avec optimisation UI/UX, modification de logique utilisateur gratuit et premium, et déploiement sur les stores iOS/Android.",
+      framerShowcase:
+        "Site vitrine moderne construit avec Framer pour un projet de jeu Telegram, avec design responsive et animations fluides.",
+    },
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
@@ -51,7 +99,10 @@ export default function Portfolio() {
             </h1>
             <p className="text-xl text-zinc-400 max-w-[600px]">{t("hero.description")}</p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="relative overflow-hidden group bg-gradient-to-r from-blue-500 to-cyan-500 border-0">
+              <Button
+                className="relative overflow-hidden group bg-gradient-to-r from-blue-500 to-cyan-500 border-0"
+                onClick={() => scrollToSection("projects")}
+              >
                 <span className="relative z-10 flex items-center">
                   {t("hero.viewProjects")}{" "}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -61,6 +112,7 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
+                onClick={() => scrollToSection("contact")}
               >
                 <span className="text-blue-400">{t("hero.contactMe")}</span>
               </Button>
@@ -84,16 +136,6 @@ export default function Portfolio() {
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
-                </Button>
-              </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-                >
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
                 </Button>
               </Link>
               <Link href="mailto:henrique.mar@outlook.fr">
@@ -135,7 +177,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
-                  src="/placeholder.svg?height=600&width=600"
+                  src="/images/henrique-portrait.jpg"
                   alt="Henrique MARTINS"
                   className="w-full h-full object-cover"
                 />
@@ -151,9 +193,21 @@ export default function Portfolio() {
 
             <div className="space-y-6">
               <GlassmorphicCard>
-                <p className="text-lg text-zinc-300">{t("about.description1")}</p>
-                <p className="text-lg text-zinc-300 mt-4">{t("about.description2")}</p>
-                <p className="text-lg text-zinc-300 mt-4">{t("about.description3")}</p>
+                <p className="text-lg text-zinc-300">
+                  {language === "en"
+                    ? "I'm a passionate software engineer with expertise in web development, 3D applications, and creative digital solutions. I specialize in modern web technologies including React, Next.js, and TypeScript, while also having strong experience in 3D development and interactive applications."
+                    : "Je suis un ingénieur logiciel passionné avec une expertise en développement web, applications 3D et solutions numériques créatives. Je me spécialise dans les technologies web modernes incluant React, Next.js et TypeScript, tout en ayant une solide expérience en développement 3D et applications interactives."}
+                </p>
+                <p className="text-lg text-zinc-300 mt-4">
+                  {language === "en"
+                    ? "My professional journey includes working as a Developer Engineer focusing on 3D and web technologies at FR INVEST, where I completed my ESIEE computer engineering diploma. I've also gained valuable experience as a computer scientist at CAPMONDE during my ESIEE BTS SNIR Apprenticeship."
+                    : "Mon parcours professionnel inclut le travail en tant qu'Ingénieur Développeur spécialisé dans les technologies 3D et web chez FR INVEST, où j'ai complété mon diplôme d'ingénieur informatique ESIEE. J'ai également acquis une expérience précieuse en tant qu'informaticien chez CAPMONDE pendant mon apprentissage BTS SNIR ESIEE."}
+                </p>
+                <p className="text-lg text-zinc-300 mt-4">
+                  {language === "en"
+                    ? "Currently working as a freelance developer under MyHextech, I'm passionate about creating innovative digital experiences that combine technical excellence with creative vision. I'm always exploring new technologies and staying current with industry trends to deliver cutting-edge solutions."
+                    : "Travaillant actuellement en tant que développeur freelance sous MyHextech, je suis passionné par la création d'expériences numériques innovantes qui combinent excellence technique et vision créative. J'explore constamment de nouvelles technologies et reste à jour avec les tendances de l'industrie pour livrer des solutions de pointe."}
+                </p>
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
@@ -166,16 +220,19 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.location")}</div>
-                    <div className="font-medium">Saint-Denis-les-Ponts</div>
+                    <div className="font-medium">Eure et Loir, France</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.availability")}</div>
-                    <div className="font-medium text-green-500">{t("about.availabilityStatus")}</div>
+                    <div className="font-medium text-green-500">Open to opportunities</div>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">{t("about.downloadResume")}</Button>
+                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white" onClick={downloadCV}>
+                    <Download className="mr-2 h-4 w-4" />
+                    {t("about.downloadResume")}
+                  </Button>
                 </div>
               </GlassmorphicCard>
             </div>
@@ -194,18 +251,24 @@ export default function Portfolio() {
           <SectionHeading title={t("skills.title")} subtitle={t("skills.subtitle")} />
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
+            <SkillBadge name="Unity" level={95} />
+            <SkillBadge name="Unreal Engine" level={85} />
+            <SkillBadge name="HTML/CSS" level={95} />
             <SkillBadge name="JavaScript" level={90} />
             <SkillBadge name="TypeScript" level={85} />
-            <SkillBadge name="React" level={95} />
-            <SkillBadge name="Next.js" level={90} />
-            <SkillBadge name="Node.js" level={80} />
-            <SkillBadge name="HTML/CSS" level={95} />
-            <SkillBadge name="Tailwind CSS" level={90} />
-            <SkillBadge name="GraphQL" level={75} />
-            <SkillBadge name="PostgreSQL" level={70} />
+            <SkillBadge name="React" level={90} />
+            <SkillBadge name="Angular" level={75} />
+            <SkillBadge name="Vue" level={80} />
+            <SkillBadge name="Tailwind CSS" level={95} />
+            <SkillBadge name="Firebase" level={85} />
+            <SkillBadge name="Git" level={90} />
+            <SkillBadge name="Docker" level={75} />
+            <SkillBadge name="GCP" level={70} />
             <SkillBadge name="AWS" level={65} />
-            <SkillBadge name="Docker" level={60} />
-            <SkillBadge name="Git" level={85} />
+            <SkillBadge name="FlutterFlow/Flutter" level={80} />
+            <SkillBadge name="iOS Deployment" level={85} />
+            <SkillBadge name="Android Deployment" level={85} />
+            <SkillBadge name="Python" level={75} />
           </div>
         </div>
       </section>
@@ -222,52 +285,52 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
-              title="E-commerce Platform"
-              description="A full-stack e-commerce platform built with Next.js, Stripe, and Prisma."
-              tags={["Next.js", "TypeScript", "Prisma", "Stripe"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              title={language === "en" ? "Decentraland Metaverse" : "Métaverse Decentraland"}
+              description={projectDescriptions[language].decentralandMetaverse}
+              tags={["Decentraland", "3D", "Metaverse", "WebGL", "TypeScript"]}
+              image="/images/decentraland-scene.png"
+              demoUrl="https://decentraland.org"
+              repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title="Task Management App"
-              description="A collaborative task management application with real-time updates."
-              tags={["React", "Firebase", "Tailwind CSS", "Redux"]}
-              image="/placeholder.svg?height=400&width=600"
+              title={language === "en" ? "Unity Games & Telegram Apps" : "Jeux Unity & Apps Telegram"}
+              description={projectDescriptions[language].unityGames}
+              tags={["Unity", "C#", "WebGL", "Telegram API", "2D/3D"]}
+              image="/images/unity-logo.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title="AI Content Generator"
-              description="An AI-powered content generation tool using OpenAI's GPT models."
-              tags={["Next.js", "OpenAI API", "Node.js", "MongoDB"]}
-              image="/placeholder.svg?height=400&width=600"
+              title={language === "en" ? "Unreal Engine 5 Games" : "Jeux Unreal Engine 5"}
+              description={projectDescriptions[language].unrealEngine}
+              tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++"]}
+              image="/images/unreal-engine-logo-white.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title="Fitness Tracker"
-              description="A mobile-first fitness tracking application with data visualization."
-              tags={["React Native", "TypeScript", "D3.js", "Firebase"]}
-              image="/placeholder.svg?height=400&width=600"
+              title={language === "en" ? "Telegram AI Chat Bot" : "Bot de Chat IA Telegram"}
+              description={projectDescriptions[language].telegramBot}
+              tags={["Telegram API", "AI", "Node.js", "API Integration", "Python", "Docker", "Redis"]}
+              image="/images/telegram-logo-circle.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title="Weather Dashboard"
-              description="A beautiful weather dashboard with forecasts and historical data."
-              tags={["React", "Weather API", "Chart.js", "Styled Components"]}
-              image="/placeholder.svg?height=400&width=600"
+              title={language === "en" ? "Wanteed App" : "Application Wanteed"}
+              description={projectDescriptions[language].wanteedApp}
+              tags={["FlutterFlow", "UI/UX", "iOS", "Android", "Firebase"]}
+              image="/images/wanteed-logo.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title="Portfolio Website"
-              description="This portfolio website built with Next.js and Tailwind CSS."
-              tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-              image="/placeholder.svg?height=400&width=600"
+              title={language === "en" ? "Framer Showcase Website" : "Site Vitrine Framer"}
+              description={projectDescriptions[language].framerShowcase}
+              tags={["Framer", "React", "Responsive Design", "Animations"]}
+              image="/images/framer-logo.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/HenriqueMARTINS9"
             />
           </div>
         </div>
@@ -377,16 +440,6 @@ export default function Portfolio() {
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
-              </Button>
-            </Link>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
               </Button>
             </Link>
             <Link href="mailto:henrique.mar@outlook.fr">
