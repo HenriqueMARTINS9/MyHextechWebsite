@@ -336,7 +336,7 @@ export default function Portfolio() {
               title={language === "en" ? "Website" : "Site Web"}
               description={projectDescriptions[language].framerShowcase}
               tags={["React", "Vue", "Angular", "AWS S3", "Node.JS", "TailwinCSS", "Vercel"]}
-              image="/images/framer-logo.png"
+              image="/images/CobaltLogo.svg"
               demoUrl="https://cobalt.shop/"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
