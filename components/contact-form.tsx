@@ -16,25 +16,49 @@ export function ContactForm() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { language } = useLanguage()
+  const [isSent, setIsSent] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: language === "en" ? "Message sent!" : "Message envoyé !",
-      description:
-        language === "en"
-          ? "Thanks for reaching out. I'll get back to you soon."
-          : "Merci de m'avoir contacté. Je vous répondrai bientôt.",
-    })
-
+  
+    const formData = new FormData(e.currentTarget)
+  
+    try {
+      const res = await fetch("https://formspree.io/f/xblykzpj", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      })
+  
+      if (res.ok) {
+        toast({
+          title: language === "en" ? "Message sent!" : "Message envoyé !",
+          description:
+            language === "en"
+              ? "Thanks for reaching out. I'll get back to you soon."
+              : "Merci de m'avoir contacté. Je vous répondrai bientôt.",
+        })
+        setIsSent(true)
+        e.currentTarget.reset()
+      } else {
+        throw new Error()
+      }
+    } catch (error) {
+      toast({
+        title: language === "en" ? "Error" : "Erreur",
+        description:
+          language === "en"
+            ? "Something went wrong. Please try again."
+            : "Une erreur s'est produite. Veuillez réessayer.",
+      })
+    }
+  
     setIsSubmitting(false)
-    e.currentTarget.reset()
   }
+  
 
   return (
     <motion.div
@@ -53,6 +77,7 @@ export function ContactForm() {
             <div className="space-y-2">
               <Input
                 placeholder={language === "en" ? "Your Name" : "Votre Nom"}
+                name="name"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
               />
@@ -60,6 +85,7 @@ export function ContactForm() {
             <div className="space-y-2">
               <Input
                 type="email"
+                name="email"
                 placeholder={language === "en" ? "Your Email" : "Votre Email"}
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
@@ -68,6 +94,7 @@ export function ContactForm() {
             <div className="space-y-2">
               <Input
                 placeholder={language === "en" ? "Subject" : "Sujet"}
+                name="subject"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
               />
@@ -75,6 +102,7 @@ export function ContactForm() {
             <div className="space-y-2">
               <Textarea
                 placeholder={language === "en" ? "Your Message" : "Votre Message"}
+                name="message"
                 rows={5}
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-blue-500 focus:ring-blue-500/20"
@@ -82,18 +110,21 @@ export function ContactForm() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
-              disabled={isSubmitting}
+              className={`w-full ${
+                isSent
+                  ? "bg-zinc-600 cursor-not-allowed"
+                  : "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500"
+              } border-0`}
+              disabled={isSubmitting || isSent}
             >
-              {isSubmitting ? (
-                language === "en" ? (
-                  <>Sending...</>
-                ) : (
-                  <>Envoi en cours...</>
-                )
+              {isSent ? (
+                language === "en" ? "Sent!" : "Envoyé !"
+              ) : isSubmitting ? (
+                language === "en" ? "Sending..." : "Envoi en cours..."
               ) : (
                 <>
-                  {language === "en" ? "Send Message" : "Envoyer le Message"} <Send className="ml-2 h-4 w-4" />
+                  {language === "en" ? "Send Message" : "Envoyer le Message"}
+                  <Send className="ml-2 h-4 w-4" />
                 </>
               )}
             </Button>

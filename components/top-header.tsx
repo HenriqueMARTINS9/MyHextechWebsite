@@ -103,14 +103,17 @@ export function TopHeader() {
             <LanguageToggle />
 
             {/* Resume Button */}
-            <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="/CVHenriqueMartins2025.pdf"
+              download="CV-Henrique-MARTINS.pdf"
+            >
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
               >
                 {t("nav.resume")}
               </Button>
-            </Link>
+            </a>
             
           </div>
         </div>

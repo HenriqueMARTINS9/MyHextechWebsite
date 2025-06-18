@@ -80,7 +80,7 @@ export default function Portfolio() {
       <FloatingNav />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-32">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -220,7 +220,7 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.email")}</div>
-                    <div className="font-medium">henrique.mar@outlook.fr</div>
+                    <div className="font-medium break-all">henrique.mar@outlook.fr</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.location")}</div>
@@ -259,24 +259,24 @@ export default function Portfolio() {
           <SectionHeading title={t("skills.title")} subtitle={t("skills.subtitle")} />
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
-            <SkillBadge name="Unity" level={95} />
-            <SkillBadge name="Unreal Engine" level={85} />
             <SkillBadge name="HTML/CSS" level={95} />
             <SkillBadge name="JavaScript" level={90} />
             <SkillBadge name="TypeScript" level={85} />
             <SkillBadge name="React" level={90} />
             <SkillBadge name="Angular" level={75} />
             <SkillBadge name="Vue" level={80} />
-            <SkillBadge name="Tailwind CSS" level={95} />
-            <SkillBadge name="Firebase" level={85} />
-            <SkillBadge name="Git" level={90} />
-            <SkillBadge name="Docker" level={75} />
-            <SkillBadge name="GCP" level={70} />
+            <SkillBadge name="Tailwind CSS" level={85} />
+            <SkillBadge name="Python" level={75} />
+            <SkillBadge name="Unity" level={70} />
+            <SkillBadge name="Unreal Engine" level={70} />
+            <SkillBadge name="Firebase" level={80} />
+            <SkillBadge name="Git" level={80} />
+            <SkillBadge name="Docker" level={70} />
+            <SkillBadge name="GCP" level={75} />
             <SkillBadge name="AWS" level={65} />
             <SkillBadge name="FlutterFlow/Flutter" level={80} />
-            <SkillBadge name="iOS Deployment" level={85} />
-            <SkillBadge name="Android Deployment" level={85} />
-            <SkillBadge name="Python" level={75} />
+            <SkillBadge name="iOS Deployment" level={95} />
+            <SkillBadge name="Android Deployment" level={95} />
           </div>
         </div>
       </section>
@@ -383,7 +383,7 @@ export default function Portfolio() {
               <h3 className="text-2xl font-bold mb-6">{t("contact.info")}</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] rounded-full bg-zinc-800 flex items-center justify-center">
                     <Mail className="h-5 w-5 text-blue-400" />
                   </div>
                   <div>
@@ -392,21 +392,20 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] rounded-full bg-zinc-800 flex items-center justify-center">
                     <Linkedin className="h-5 w-5 text-blue-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">linkedin.com/in/henrique-martins9</div>
+                    <div className="text-sm text-zinc-500">LinkedIn</div>                    <div className="font-medium">linkedin.com/in/henrique-martins9</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] rounded-full bg-zinc-800 flex items-center justify-center">
                     <Github className="h-5 w-5 text-blue-400" />
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">GitHub</div>
-                    <div className="font-medium">github.com/HenriqueMARTINS9</div>
+                    <div className="font-medium break-all">github.com/HenriqueMARTINS9</div>
                   </div>
                 </div>
               </div>
@@ -414,7 +413,7 @@ export default function Portfolio() {
               <div className="mt-8 pt-8 border-t border-zinc-800">
                 <h4 className="text-lg font-medium mb-4">{t("contact.currentStatus")}</h4>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="w-3 h-3 min-w-[0.8rem] min-h-[0.8rem] rounded-full bg-green-500 animate-pulse"></div>
                   <span>{t("contact.statusMessage")}</span>
                 </div>
               </div>

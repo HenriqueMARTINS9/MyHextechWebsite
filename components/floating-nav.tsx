@@ -46,7 +46,7 @@ export function FloatingNav() {
   return (
     <>
       <motion.div
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed top-6 -translate-x-1/2 z-50 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"} ${isMobile ? "left-[40%]" : "left-1/2"}`}
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3 }}
@@ -121,11 +121,14 @@ export function FloatingNav() {
                 {item.name}
               </Link>
             ))}
-            <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="/CVHenriqueMartins2025.pdf"
+              download="CV-Henrique-MARTINS.pdf"
+            >
               <Button className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0">
                 {t("nav.resume")}
               </Button>
-            </Link>
+            </a>
           </div>
         </motion.div>
       )}
