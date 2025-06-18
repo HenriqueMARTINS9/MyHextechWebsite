@@ -332,6 +332,14 @@ export default function Portfolio() {
               demoUrl="https://example.com"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
+            <ProjectCard
+              title={language === "en" ? "Website" : "Site Web"}
+              description={projectDescriptions[language].framerShowcase}
+              tags={["React", "Vue", "Angular", "AWS S3", "Node.JS", "TailwinCSS", "Vercel"]}
+              image="/images/framer-logo.png"
+              demoUrl="https://cobalt.shop/"
+              repoUrl="https://github.com/HenriqueMARTINS9"
+            />
           </div>
         </div>
       </section>
