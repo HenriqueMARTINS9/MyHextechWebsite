@@ -66,7 +66,6 @@ export function TopHeader() {
 
           {/* Right side - Language toggle and social links */}
           <div className="flex items-center space-x-4">
-            <LanguageToggle />
 
             {/* Social Links */}
             <div className="hidden md:flex items-center space-x-2">
@@ -101,6 +100,7 @@ export function TopHeader() {
                 </Button>
               </Link>
             </div>
+            <LanguageToggle />
 
             {/* Resume Button */}
             <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
@@ -111,6 +111,7 @@ export function TopHeader() {
                 {t("nav.resume")}
               </Button>
             </Link>
+            
           </div>
         </div>
       </div>

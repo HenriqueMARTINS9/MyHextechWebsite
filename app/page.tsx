@@ -31,7 +31,7 @@ export default function Portfolio() {
   const downloadCV = () => {
     const link = document.createElement("a")
     link.href = "/cv-henrique-martins.pdf"
-    link.download = "CV-Henrique-MARTINS.pdf"
+    link.download = "CVHenriqueMartins2025.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -233,10 +233,14 @@ export default function Portfolio() {
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white" onClick={downloadCV}>
+                  <a
+                    href="/CVHenriqueMartins2025.pdf"
+                    download="CV-Henrique-MARTINS.pdf"
+                    className="inline-flex items-center bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded text-sm font-medium"
+                  >
                     <Download className="mr-2 h-4 w-4" />
                     {t("about.downloadResume")}
-                  </Button>
+                  </a>
                 </div>
               </GlassmorphicCard>
             </div>
