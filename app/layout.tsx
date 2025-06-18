@@ -4,9 +4,9 @@ import "./globals.css"
 import { LanguageProvider } from "@/contexts/language-context"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "MyHextech",
+  description: "Created by Henrique MARTINS",
+  generator: "Henrique MARTINS",
 }
 
 export default function RootLayout({
