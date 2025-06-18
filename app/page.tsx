@@ -48,9 +48,11 @@ export default function Portfolio() {
       telegramBot:
         "AI-powered Telegram chat bot with API account connection and comprehensive user usage tracking system.",
       wanteedApp:
-        "Complete mobile application redesign with UI/UX optimization, user logic modification for free and premium users, and iOS/Android store deployment.",
+        "Complete mobile application and website redesign with UI/UX optimization, user logic modification for free and premium users, and iOS/Android store deployment.",
       framerShowcase:
         "Modern showcase website built with Framer for a Telegram Game project, featuring responsive design and smooth animations.",
+      websites:
+        "Websites for NFT projects, featuring user account creation, personal dashboards, collection display, and dynamic interactions tailored to each project.",
     },
     fr: {
       decentralandMetaverse:
@@ -62,9 +64,11 @@ export default function Portfolio() {
       telegramBot:
         "Bot de chat IA Telegram avec connexion de compte API et système complet de suivi d'utilisation utilisateur.",
       wanteedApp:
-        "Refonte complète d'application mobile avec optimisation UI/UX, modification de logique utilisateur gratuit et premium, et déploiement sur les stores iOS/Android.",
+        "Refonte complète d'application mobile et site web avec optimisation UI/UX, modification de logique utilisateur gratuit et premium, et déploiement sur les stores iOS/Android.",
       framerShowcase:
         "Site vitrine moderne construit avec Framer pour un projet de jeu Telegram, avec design responsive et animations fluides.",
+      websites:
+        "Sites web pour projets NFT, avec création de compte utilisateur, espace personnel, affichage des collections et interactions dynamiques selon le projet.",
     },
   }
 
@@ -285,25 +289,25 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
-              title={language === "en" ? "Decentraland Metaverse" : "Métaverse Decentraland"}
-              description={projectDescriptions[language].decentralandMetaverse}
-              tags={["Decentraland", "3D", "Metaverse", "WebGL", "TypeScript"]}
-              image="/images/decentraland-scene.png"
-              demoUrl="https://decentraland.org"
+              title={language === "en" ? "Wanteed App & Website" : "Application Wanteed & Site Web"}
+              description={projectDescriptions[language].wanteedApp}
+              tags={["FlutterFlow", "Webflow", "UI/UX", "Figma", "iOS", "Android", "Firebase"]}
+              image="/images/wanteed-logo.png"
+              demoUrl="https://wanteed.io"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
               title={language === "en" ? "Unity Games & Telegram Apps" : "Jeux Unity & Apps Telegram"}
               description={projectDescriptions[language].unityGames}
-              tags={["Unity", "C#", "WebGL", "Telegram API", "2D/3D"]}
+              tags={["Unity", "C#", "WebGL", "Telegram API", "2D/3D", "Firebase", "GCP"]}
               image="/images/unity-logo.png"
-              demoUrl="https://example.com"
+              demoUrl="https://yumparty.com/"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
               title={language === "en" ? "Unreal Engine 5 Games" : "Jeux Unreal Engine 5"}
               description={projectDescriptions[language].unrealEngine}
-              tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++"]}
+              tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++", "AWS S3"]}
               image="/images/unreal-engine-logo-white.png"
               demoUrl="https://example.com"
               repoUrl="https://github.com/HenriqueMARTINS9"
@@ -317,27 +321,27 @@ export default function Portfolio() {
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title={language === "en" ? "Wanteed App" : "Application Wanteed"}
-              description={projectDescriptions[language].wanteedApp}
-              tags={["FlutterFlow", "UI/UX", "iOS", "Android", "Firebase"]}
-              image="/images/wanteed-logo.png"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/HenriqueMARTINS9"
-            />
-            <ProjectCard
               title={language === "en" ? "Framer Showcase Website" : "Site Vitrine Framer"}
               description={projectDescriptions[language].framerShowcase}
               tags={["Framer", "React", "Responsive Design", "Animations"]}
               image="/images/framer-logo.png"
-              demoUrl="https://example.com"
+              demoUrl="https://expanded-purpose-547645.framer.app/"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title={language === "en" ? "Website" : "Site Web"}
-              description={projectDescriptions[language].framerShowcase}
-              tags={["React", "Vue", "Angular", "AWS S3", "Node.JS", "TailwinCSS", "Vercel"]}
+              title={language === "en" ? "Websites" : "Sites Web"}
+              description={projectDescriptions[language].websites}
+              tags={["React", "Vue", "Angular", "AWS S3", "Node.JS", "TailwinCSS", "Vercel", "Metamask"]}
               image="/images/CobaltLogo.svg"
               demoUrl="https://cobalt.shop/"
+              repoUrl="https://github.com/HenriqueMARTINS9"
+            />
+            <ProjectCard
+              title={language === "en" ? "Decentraland Metaverse" : "Métaverse Decentraland"}
+              description={projectDescriptions[language].decentralandMetaverse}
+              tags={["Decentraland", "3D", "Metaverse", "WebGL", "TypeScript"]}
+              image="/images/decentraland-scene.png"
+              demoUrl="https://decentraland.org"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
           </div>
