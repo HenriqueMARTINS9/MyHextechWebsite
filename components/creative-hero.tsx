@@ -186,7 +186,7 @@ export function CreativeHero() {
 
   return (
     <motion.div
-      className="w-[200px] h-[50px] sm:h-[400px] w-full md:h-[500px] relative"
+      className="w-[150px] h-[100px] sm:h-[400px] w-full md:h-[500px] relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
