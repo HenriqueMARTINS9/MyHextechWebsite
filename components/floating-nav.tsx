@@ -55,7 +55,7 @@ export function FloatingNav() {
           <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur opacity-50"></div>
 
           {isMobile ? (
-            <div className="relative flex items-center justify-between">
+            <div className="relative flex items-center justify-between left-4/10">
               <Link href="/" className="font-bold text-lg">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">My</span>
                 <span className="text-white">Hextech</span>
