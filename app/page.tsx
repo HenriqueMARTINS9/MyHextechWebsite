@@ -16,8 +16,10 @@ import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
 import { useLanguage } from "@/contexts/language-context"
+import useMobile from "@/hooks/use-mobile"
 
 export default function Portfolio() {
+  const isMobile = useMobile()
   const { t, language } = useLanguage()
 
   // Smooth scroll functions
@@ -154,12 +156,14 @@ export default function Portfolio() {
               </Link>
             </div>
           </div>
-          <div className="flex justify-center">
-            <CreativeHero />
-          </div>
+          {!isMobile && (
+            <div className="flex justify-center">
+              <CreativeHero />
+            </div>
+)}
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="hidden md:absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
             <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
           </div>
@@ -301,15 +305,23 @@ export default function Portfolio() {
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title={language === "en" ? "Unity Games & Telegram Apps" : "Jeux Unity & Apps Telegram"}
+              title={language === "en" ? "Unity Runner Game" : "Jeu Unity Runner"}
               description={projectDescriptions[language].unityGames}
-              tags={["Unity", "C#", "WebGL", "Telegram API", "2D/3D", "Firebase", "GCP"]}
+              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
               image="/images/unity-logo.png"
-              demoUrl="https://yumparty.com/"
-              repoUrl="https://github.com/HenriqueMARTINS9"
+              demoUrl="https://cobalt-runner-v1.vercel.app/"
+              repoUrl="https://github.com/HenriqueMARTINS9/CobaltRunnerV1"
             />
             <ProjectCard
-              title={language === "en" ? "Unreal Engine 5 Games" : "Jeux Unreal Engine 5"}
+              title={language === "en" ? "Unity Casino Game" : "Jeu Unity Casino"}
+              description={projectDescriptions[language].unityGames}
+              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
+              image="/images/unity-logo.png"
+              demoUrl="https://lucky-lion-casino.vercel.app/"
+              repoUrl="https://github.com/HenriqueMARTINS9/LuckyLionCasino"
+            />
+            <ProjectCard
+              title={language === "en" ? "Immersive Store ShoUnreal Engine 5" : "Magasin Immersif Unreal Engine 5"}
               description={projectDescriptions[language].unrealEngine}
               tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++", "AWS S3"]}
               image="/images/unreal-engine-logo-white.png"
