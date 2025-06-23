@@ -305,30 +305,6 @@ export default function Portfolio() {
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title={language === "en" ? "Unity Runner Game" : "Jeu Unity Runner"}
-              description={projectDescriptions[language].unityGames}
-              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
-              image="/images/unity-logo.png"
-              demoUrl="https://cobalt-runner-v1.vercel.app/"
-              repoUrl="https://github.com/HenriqueMARTINS9/CobaltRunnerV1"
-            />
-            <ProjectCard
-              title={language === "en" ? "Unity Casino Game" : "Jeu Unity Casino"}
-              description={projectDescriptions[language].unityGames}
-              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
-              image="/images/unity-logo.png"
-              demoUrl="https://lucky-lion-casino.vercel.app/"
-              repoUrl="https://github.com/HenriqueMARTINS9/LuckyLionCasino"
-            />
-            <ProjectCard
-              title={language === "en" ? "Immersive Store ShoUnreal Engine 5" : "Magasin Immersif Unreal Engine 5"}
-              description={projectDescriptions[language].unrealEngine}
-              tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++", "AWS S3"]}
-              image="/images/unreal-engine-logo-white.png"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/HenriqueMARTINS9"
-            />
-            <ProjectCard
               title={language === "en" ? "Telegram AI Chat Bot" : "Bot de Chat IA Telegram"}
               description={projectDescriptions[language].telegramBot}
               tags={["Telegram API", "AI", "Node.js", "API Integration", "Python", "Docker", "Redis"]}
@@ -337,11 +313,19 @@ export default function Portfolio() {
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
-              title={language === "en" ? "Framer Showcase Website" : "Site Vitrine Framer"}
-              description={projectDescriptions[language].framerShowcase}
-              tags={["Framer", "React", "Responsive Design", "Animations"]}
-              image="/images/framer-logo.png"
-              demoUrl="https://expanded-purpose-547645.framer.app/"
+              title={language === "en" ? "Unity Runner Game" : "Jeu Unity Runner"}
+              description={projectDescriptions[language].unityGames}
+              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
+              image="/images/unity-logo.png"
+              demoUrl="https://cobalt-runner-v1.vercel.app/"
+              repoUrl="https://github.com/HenriqueMARTINS9/CobaltRunnerV1"
+            />
+            <ProjectCard
+              title={language === "en" ? "Immersive Store Unreal Engine 5" : "Magasin Immersif Unreal Engine 5"}
+              description={projectDescriptions[language].unrealEngine}
+              tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++", "AWS S3"]}
+              image="/images/unreal-engine-logo-white.png"
+              demoUrl="https://example.com"
               repoUrl="https://github.com/HenriqueMARTINS9"
             />
             <ProjectCard
