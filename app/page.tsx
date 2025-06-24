@@ -279,6 +279,8 @@ export default function Portfolio() {
             <SkillBadge name="GCP" level={75} />
             <SkillBadge name="AWS" level={65} />
             <SkillBadge name="FlutterFlow/Flutter" level={80} />
+            <SkillBadge name="Framer" level={85} />
+            <SkillBadge name="WebFlow" level={80} />
             <SkillBadge name="iOS Deployment" level={95} />
             <SkillBadge name="Android Deployment" level={95} />
           </div>
