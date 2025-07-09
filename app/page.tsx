@@ -269,15 +269,15 @@ export default function Portfolio() {
               <SectionSubHeading title="Frontend & UI" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="HTML/CSS" level={95} />
-                <SkillBadge name="Tailwind CSS" level={85} />
                 <SkillBadge name="JavaScript" level={90} />
                 <SkillBadge name="TypeScript" level={85} />
                 <SkillBadge name="React" level={90} />
                 <SkillBadge name="Angular" level={75} />
                 <SkillBadge name="Vue" level={80} />
+                <SkillBadge name="Tailwind CSS" level={85} />
                 <SkillBadge name="Framer" level={85} />
                 <SkillBadge name="WebFlow" level={80} />
-                <SkillBadge name="FlutterFlow/Flutter" level={80} />
+                <SkillBadge name="Flutter" level={70} />
               </div>
             </div>
 
@@ -285,10 +285,10 @@ export default function Portfolio() {
             <div className="space-y-6">
               <SectionSubHeading title="Backend, DevOps & Cloud" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <SkillBadge name="Node.js" level={80} />
-                <SkillBadge name="Laravel" level={80} />
+                <SkillBadge name="Node.js" level={70} />
+                <SkillBadge name="Laravel" level={70} />
                 <SkillBadge name="Django" level={75} />
-                <SkillBadge name="Symfony" level={80} />
+                <SkillBadge name="Symfony" level={70} />
                 <SkillBadge name="FastAPI" level={80} />
                 <SkillBadge name="MongoDB" level={75} />
                 <SkillBadge name="PostgreSQL" level={75} />
