@@ -266,7 +266,7 @@ export default function Portfolio() {
           <div className="grid gap-12 mt-16">
             {/* Frontend & UI */}
             <div>
-              <SectionSubHeading title="🖥️ Frontend & UI" />
+              <SectionSubHeading title="Frontend & UI" />
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="HTML/CSS" level={95} />
                 <SkillBadge name="Tailwind CSS" level={85} />
@@ -283,19 +283,30 @@ export default function Portfolio() {
 
             {/* Backend, DevOps & Cloud */}
             <div>
-              <SectionSubHeading title="🔧 Backend, DevOps & Cloud" />
+              <SectionSubHeading title="Backend, DevOps & Cloud" />
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="Node.js" level={80} />
+                <SkillBadge name="Laravel" level={80} />
+                <SkillBadge name="Django" level={75} />
+                <SkillBadge name="Symfony" level={80} />
+                <SkillBadge name="FastAPI" level={80} />
+                <SkillBadge name="MongoDB" level={75} />
+                <SkillBadge name="PostgreSQL" level={75} />
+                <SkillBadge name="MySQL" level={75} />
+                <SkillBadge name="Redis" level={70} />
                 <SkillBadge name="Firebase" level={80} />
+                <SkillBadge name="AWS" level={65} />
+                <SkillBadge name="Vercel" level={80} />
                 <SkillBadge name="Docker" level={70} />
                 <SkillBadge name="GCP" level={75} />
-                <SkillBadge name="AWS" level={65} />
                 <SkillBadge name="Git" level={80} />
+                <SkillBadge name="CI/CD" level={60} />
               </div>
             </div>
 
             {/* Game Development */}
             <div>
-              <SectionSubHeading title="🎮 Game Development" />
+              <SectionSubHeading title="Game Development" />
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="Unity" level={70} />
                 <SkillBadge name="Unreal Engine" level={70} />
@@ -304,22 +315,13 @@ export default function Portfolio() {
 
               {/* Mobile & Deployment */}
               <div>
-              <SectionSubHeading title="📱 Mobile & Deployment" />
+              <SectionSubHeading title="Mobile & Deployment" />
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="iOS Deployment" level={95} />
                 <SkillBadge name="Android Deployment" level={95} />
               </div>
             </div>
-
-            {/* Autres langages */}
-            <div>
-              <SectionSubHeading title="🧠 Autres langages" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <SkillBadge name="Python" level={75} />
-              </div>
-            </div>
           </div>
-
         </div>
       </section>
 
