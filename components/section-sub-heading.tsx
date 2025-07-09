@@ -8,7 +8,7 @@ interface SectionSubHeadingProps {
 
 export function SectionSubHeading({ title }: SectionSubHeadingProps) {
   return (
-    <div className="text-center space-y-4">
+    <div className="text-center space-y-2">
       <motion.h3
         className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-300"
         initial={{ opacity: 0, y: 20 }}

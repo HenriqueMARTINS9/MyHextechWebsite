@@ -161,7 +161,7 @@ export default function Portfolio() {
             <div className="flex justify-center">
               <CreativeHero />
             </div>
-)}
+          )}
         </div>
 
         <div className="hidden md:absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
@@ -265,9 +265,9 @@ export default function Portfolio() {
 
           <div className="grid gap-12 mt-16">
             {/* Frontend & UI */}
-            <div>
+            <div className="gap-6">
               <SectionSubHeading title="Frontend & UI" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="HTML/CSS" level={95} />
                 <SkillBadge name="Tailwind CSS" level={85} />
                 <SkillBadge name="JavaScript" level={90} />
@@ -282,9 +282,9 @@ export default function Portfolio() {
             </div>
 
             {/* Backend, DevOps & Cloud */}
-            <div>
+            <div className="gap-6">
               <SectionSubHeading title="Backend, DevOps & Cloud" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="Node.js" level={80} />
                 <SkillBadge name="Laravel" level={80} />
                 <SkillBadge name="Django" level={75} />
@@ -305,18 +305,18 @@ export default function Portfolio() {
             </div>
 
             {/* Game Development */}
-            <div>
+            <div className="gap-6">
               <SectionSubHeading title="Game Development" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="Unity" level={70} />
                 <SkillBadge name="Unreal Engine" level={70} />
               </div>
             </div>
 
-              {/* Mobile & Deployment */}
-              <div>
+            {/* Mobile & Deployment */}
+            <div className="gap-6">
               <SectionSubHeading title="Mobile & Deployment" />
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="iOS Deployment" level={95} />
                 <SkillBadge name="Android Deployment" level={95} />
               </div>
