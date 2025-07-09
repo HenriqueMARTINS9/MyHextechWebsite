@@ -16,6 +16,7 @@ import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
 import { useLanguage } from "@/contexts/language-context"
+import { SectionSubHeading } from "@/components/section-sub-heading"
 import useMobile from "@/hooks/use-mobile"
 
 export default function Portfolio() {
@@ -262,28 +263,63 @@ export default function Portfolio() {
         <div className="container relative z-10">
           <SectionHeading title={t("skills.title")} subtitle={t("skills.subtitle")} />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
-            <SkillBadge name="HTML/CSS" level={95} />
-            <SkillBadge name="JavaScript" level={90} />
-            <SkillBadge name="TypeScript" level={85} />
-            <SkillBadge name="React" level={90} />
-            <SkillBadge name="Angular" level={75} />
-            <SkillBadge name="Vue" level={80} />
-            <SkillBadge name="Tailwind CSS" level={85} />
-            <SkillBadge name="Python" level={75} />
-            <SkillBadge name="Unity" level={70} />
-            <SkillBadge name="Unreal Engine" level={70} />
-            <SkillBadge name="Firebase" level={80} />
-            <SkillBadge name="Git" level={80} />
-            <SkillBadge name="Docker" level={70} />
-            <SkillBadge name="GCP" level={75} />
-            <SkillBadge name="AWS" level={65} />
-            <SkillBadge name="FlutterFlow/Flutter" level={80} />
-            <SkillBadge name="Framer" level={85} />
-            <SkillBadge name="WebFlow" level={80} />
-            <SkillBadge name="iOS Deployment" level={95} />
-            <SkillBadge name="Android Deployment" level={95} />
+          <div className="grid gap-12 mt-16">
+            {/* Frontend & UI */}
+            <div>
+              <SectionSubHeading title="🖥️ Frontend & UI" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="HTML/CSS" level={95} />
+                <SkillBadge name="Tailwind CSS" level={85} />
+                <SkillBadge name="JavaScript" level={90} />
+                <SkillBadge name="TypeScript" level={85} />
+                <SkillBadge name="React" level={90} />
+                <SkillBadge name="Angular" level={75} />
+                <SkillBadge name="Vue" level={80} />
+                <SkillBadge name="Framer" level={85} />
+                <SkillBadge name="WebFlow" level={80} />
+                <SkillBadge name="FlutterFlow/Flutter" level={80} />
+              </div>
+            </div>
+
+            {/* Backend, DevOps & Cloud */}
+            <div>
+              <SectionSubHeading title="🔧 Backend, DevOps & Cloud" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="Firebase" level={80} />
+                <SkillBadge name="Docker" level={70} />
+                <SkillBadge name="GCP" level={75} />
+                <SkillBadge name="AWS" level={65} />
+                <SkillBadge name="Git" level={80} />
+              </div>
+            </div>
+
+            {/* Game Development */}
+            <div>
+              <SectionSubHeading title="🎮 Game Development" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="Unity" level={70} />
+                <SkillBadge name="Unreal Engine" level={70} />
+              </div>
+            </div>
+
+              {/* Mobile & Deployment */}
+              <div>
+              <SectionSubHeading title="📱 Mobile & Deployment" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="iOS Deployment" level={95} />
+                <SkillBadge name="Android Deployment" level={95} />
+              </div>
+            </div>
+
+            {/* Autres langages */}
+            <div>
+              <SectionSubHeading title="🧠 Autres langages" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="Python" level={75} />
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 
