@@ -122,8 +122,8 @@ export function FloatingNav() {
               </Link>
             ))}
             <a
-              href="/CVHenriqueMartins2025.pdf"
-              download="CV-Henrique-MARTINS.pdf"
+              href="/CV-HenriqueMARTINS-MyHextech-072025.pdf"
+              download="CV-HenriqueMARTINS-MyHextech-072025.pdf"
             >
               <Button className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0">
                 {t("nav.resume")}

@@ -104,8 +104,8 @@ export function TopHeader() {
 
             {/* Resume Button */}
             <a
-              href="/CVHenriqueMartins2025.pdf"
-              download="CV-Henrique-MARTINS.pdf"
+              href="/CV-HenriqueMARTINS-MyHextech-072025.pdf"
+              download="CV-HenriqueMARTINS-MyHextech-072025.pdf"
             >
               <Button
                 size="sm"
