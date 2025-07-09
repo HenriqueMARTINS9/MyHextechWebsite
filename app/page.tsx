@@ -265,7 +265,7 @@ export default function Portfolio() {
 
           <div className="grid gap-12 mt-16">
             {/* Frontend & UI */}
-            <div className="gap-6">
+            <div className="space-y-6">
               <SectionSubHeading title="Frontend & UI" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="HTML/CSS" level={95} />
@@ -282,7 +282,7 @@ export default function Portfolio() {
             </div>
 
             {/* Backend, DevOps & Cloud */}
-            <div className="gap-6">
+            <div className="space-y-6">
               <SectionSubHeading title="Backend, DevOps & Cloud" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="Node.js" level={80} />
@@ -305,7 +305,7 @@ export default function Portfolio() {
             </div>
 
             {/* Game Development */}
-            <div className="gap-6">
+            <div className="space-y-6">
               <SectionSubHeading title="Game Development" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="Unity" level={70} />
@@ -314,7 +314,7 @@ export default function Portfolio() {
             </div>
 
             {/* Mobile & Deployment */}
-            <div className="gap-6">
+            <div className="space-y-6">
               <SectionSubHeading title="Mobile & Deployment" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="iOS Deployment" level={95} />
