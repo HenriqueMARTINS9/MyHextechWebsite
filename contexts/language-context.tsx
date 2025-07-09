@@ -21,9 +21,9 @@ const translations = {
     "nav.resume": "Resume",
 
     // Hero Section
-    "hero.subtitle": "Software Engineer & Creative Developer",
+    "hero.subtitle": "Software Engineer & Full-Stack Developer",
     "hero.greeting": "Hi, I'm",
-    "hero.description": "I craft exceptional digital experiences with code, creativity, and a passion for innovation.",
+    "hero.description": "I design and build tailored digital experiences, blending code, creativity, and technical precision.",
     "hero.viewProjects": "View Projects",
     "hero.contactMe": "Contact Me",
 
@@ -31,7 +31,7 @@ const translations = {
     "about.title": "About Me",
     "about.subtitle": "My background and journey",
     "about.description1":
-      "I'm a passionate software engineer with experience building web applications and digital products. I specialize in frontend development with React and Next.js, but I'm also comfortable working with backend technologies.",
+      "I'm a full-stack developer driven by the challenge of turning ideas into real, performant digital products from UI design to backend logic.",
     "about.description2":
       "My journey in tech started with a strong foundation in software development. I've worked with various companies to create intuitive, performant, and accessible digital experiences.",
     "about.description3":
@@ -76,10 +76,10 @@ const translations = {
     "nav.resume": "CV",
 
     // Hero Section
-    "hero.subtitle": "Ingénieur Logiciel & Développeur Créatif",
+    "hero.subtitle": "Ingénieur Logiciel & Développeur Full-Stack",
     "hero.greeting": "Bonjour, je suis",
     "hero.description":
-      "Je crée des expériences numériques exceptionnelles avec du code, de la créativité et une passion pour l'innovation.",
+      "J'imagine et développe des expériences numériques sur mesure, mêlant code, créativité et exigence technique.",
     "hero.viewProjects": "Voir les Projets",
     "hero.contactMe": "Me Contacter",
 
@@ -87,7 +87,7 @@ const translations = {
     "about.title": "À Propos de Moi",
     "about.subtitle": "Mon parcours et mon histoire",
     "about.description1":
-      "Je suis un ingénieur logiciel passionné avec une expertise en développement web, applications 3D et solutions numériques créatives. Je me spécialise dans les technologies web modernes incluant React, Next.js et TypeScript, tout en ayant une solide expérience en développement 3D et applications interactives.",
+      "Je suis développeur full-stack, animé par le défi de transformer des idées en produits numériques concrets et performants, de la conception d'interfaces à la logique backend.",
     "about.description2":
       "Mon parcours professionnel inclut le travail en tant qu'Ingénieur Développeur spécialisé dans les technologies 3D et web chez Cobalt, où j'ai complété mon diplôme d'ingénieur informatique ESIEE. J'ai également acquis une expérience précieuse en tant qu'informaticien chez CAPMONDE pendant mon apprentissage BTS SNIR ESIEE.",
     "about.description3":
@@ -118,16 +118,16 @@ const translations = {
     "experience.title": "Expérience Professionnelle",
     "experience.subtitle": "Mon parcours professionnel",
     "experience.freelance.title": "Développeur Freelance",
-    "experience.freelance.company": "Indépendant",
+    "experience.freelance.company": "MyHextech",
     "experience.freelance.description":
       "Travaille en tant que développeur freelance spécialisé dans le développement web, d'applications et 3D.",
     "experience.cobalt.title": "Ingénieur Développeur 3D et Web",
     "experience.cobalt.company": "Cobalt",
     "experience.cobalt.description":
-      "Diplôme d'ingénieur informatique et développement ESIEE complété tout en travaillant comme Ingénieur Développeur spécialisé dans les technologies 3D et web.",
+      "En apprentissage pour le diplôme d'ingénieur développeur informatique à l'ESIEE, j'ai travaillé comme Ingénieur Développeur spécialisé dans les technologies 3D et web.",
     "experience.capmonde.title": "Informaticien",
     "experience.capmonde.company": "CAPMONDE",
-    "experience.capmonde.description": "Apprentissage BTS SNIR ESIEE complété tout en travaillant comme informaticien.",
+    "experience.capmonde.description": "En apprentissage pour le BTS SNIR à l'ESIEE, j'ai travaillé comme informaticien.",
 
     // Contact Section
     "contact.title": "Entrer en Contact",
