@@ -275,7 +275,8 @@ export default function Portfolio() {
                 <SkillBadge name="Angular" level={75} />
                 <SkillBadge name="Vue" level={80} />
                 <SkillBadge name="Tailwind CSS" level={85} />
-                <SkillBadge name="Framer" level={85} />
+                <SkillBadge name="Framer" level={95} />
+                <SkillBadge name="WordPress" level={90} />
                 <SkillBadge name="WebFlow" level={80} />
                 <SkillBadge name="Flutter" level={70} />
               </div>
