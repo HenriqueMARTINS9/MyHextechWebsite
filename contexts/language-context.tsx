@@ -42,7 +42,7 @@ const translations = {
     "about.availability": "Availability",
     "about.availabilityStatus": "Open to opportunities",
     "about.downloadResume": "Download Resume",
-    "about.availableForWork": "Available for work",
+    "about.availableForWork": "Available for work (TJM between 250€ and 500€ depending on the mission)",
 
     // Skills Section
     "skills.title": "My Skills",
@@ -98,7 +98,7 @@ const translations = {
     "about.availability": "Disponibilité",
     "about.availabilityStatus": "Ouvert aux opportunités",
     "about.downloadResume": "Télécharger le CV",
-    "about.availableForWork": "Disponible pour travailler",
+    "about.availableForWork": "Disponible pour travailler (TJM entre 250€ et 500€ selon la mission)",
 
     // Skills Section
     "skills.title": "Mes Compétences",
