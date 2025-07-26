@@ -233,7 +233,7 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.availability")}</div>
-                    <div className="font-medium text-green-500">Open to opportunities</div>
+                    <div className="font-medium text-green-500">{t("about.availabilityStatus")}</div>
                   </div>
                 </div>
 
