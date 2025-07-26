@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "MyHextech",
   description: "Created by Henrique MARTINS",
   generator: "Henrique MARTINS",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
