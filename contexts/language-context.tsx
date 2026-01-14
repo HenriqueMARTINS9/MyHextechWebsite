@@ -48,6 +48,10 @@ const translations = {
     "skills.title": "My Skills",
     "skills.subtitle": "Technologies I work with",
 
+    // GitHub Section
+    "github.title": "GitHub Activity",
+    "github.subtitle": "My contributions in the last year",
+
     // Projects Section
     "projects.title": "Featured Projects",
     "projects.subtitle": "Some of my recent work",
@@ -103,6 +107,10 @@ const translations = {
     // Skills Section
     "skills.title": "Mes Compétences",
     "skills.subtitle": "Technologies avec lesquelles je travaille",
+
+    // GitHub Section
+    "github.title": "Activité GitHub",
+    "github.subtitle": "Mes contributions de l'année dernière",
 
     // Projects Section
     "projects.title": "Projets en Vedette",

@@ -27,8 +27,9 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: `${level}%` }}
+              animate={{ width: `${level}%` }}
               transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
             />
           </div>
 

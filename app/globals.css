@@ -85,3 +85,71 @@
 .animate-blob {
   animation: blob 7s infinite;
 }
+
+/* GitHub Calendar Styles */
+.github-calendar-wrapper svg {
+  width: 100% !important;
+}
+
+.github-calendar-wrapper text {
+  fill: rgb(212 212 212) !important;
+}
+
+.github-calendar-wrapper .react-github-calendar__legend {
+  color: rgb(212 212 212) !important;
+}
+
+.github-calendar-wrapper .react-github-calendar__summary {
+  color: rgb(212 212 212) !important;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* Hide ALL scrollbars from react-github-calendar internal elements */
+.github-calendar-wrapper * {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.github-calendar-wrapper *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.github-calendar-wrapper * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Ensure the calendar content is fully contained and scrollable by parent */
+.github-calendar-wrapper > div {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Custom Scrollbar Styles */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: rgba(39, 39, 42, 0.5);
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.5), rgba(6, 182, 212, 0.5));
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.8), rgba(6, 182, 212, 0.8));
+}
+
+/* Firefox scrollbar */
+.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(39, 39, 42, 0.5);
+}
