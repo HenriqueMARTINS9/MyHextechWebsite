@@ -56,6 +56,12 @@ export default function Portfolio() {
         "Modern showcase website built with Framer for a Telegram Game project, featuring responsive design and smooth animations.",
       websites:
         "Websites for NFT projects, featuring user account creation, personal dashboards, collection display, and dynamic interactions tailored to each project.",
+      entrave:
+        "Platform exploring future probabilities, offering analyses and perspectives on various subjects with a modern and intuitive interface.",
+      virtualsomm:
+        "Virtual sommelier application for restaurants, democratizing access to wine expertise by providing interactive recommendations and wine discovery experiences.",
+      simvia:
+        "Frontend development for Simvia, EDF Group's subsidiary specialized in open-source software for industrial engineering calculation and simulation, focusing on modern and user-friendly interface design.",
     },
     fr: {
       decentralandMetaverse:
@@ -72,6 +78,12 @@ export default function Portfolio() {
         "Site vitrine moderne construit avec Framer pour un projet de jeu Telegram, avec design responsive et animations fluides.",
       websites:
         "Sites web pour projets NFT, avec création de compte utilisateur, espace personnel, affichage des collections et interactions dynamiques selon le projet.",
+      entrave:
+        "Plateforme explorant les probabilités du futur, offrant des analyses et des perspectives sur divers sujets avec une interface moderne et intuitive.",
+      virtualsomm:
+        "Application de sommellerie virtuelle pour restaurants, démocratisant l'accès à l'expertise en vins en proposant des recommandations interactives et des expériences de découverte.",
+      simvia:
+        "Développement frontend pour Simvia, filiale du groupe EDF spécialisée dans l'édition de logiciels open source pour le calcul et la simulation en ingénierie industrielle, avec un focus sur le design d'interface moderne et conviviale.",
     },
   }
 
@@ -204,8 +216,8 @@ export default function Portfolio() {
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
                   {language === "en"
-                    ? "I'm a passionate software engineer with expertise in web development, 3D applications, and creative digital solutions. I specialize in modern web technologies including React, Next.js, and TypeScript, while also having strong experience in 3D development and interactive applications."
-                    : "Je suis un ingénieur logiciel passionné avec une expertise en développement web, applications 3D et solutions numériques créatives. Je me spécialise dans les technologies web modernes incluant React, Next.js et TypeScript, tout en ayant une solide expérience en développement 3D et applications interactives."}
+                    ? "I'm a Full-Stack Developer and Software Engineer specialized in creating modern web applications, immersive 3D experiences, and innovative digital solutions. My work spans from responsive websites and web applications (React, Next.js, TypeScript) to complex 3D projects (Unity, Unreal Engine), covering diverse industries from enterprise solutions (Simvia - EDF Group) to innovative platforms (Entrave, Virtualsomm) and gaming experiences."
+                    : "Je suis Développeur Full-Stack et Ingénieur Logiciel spécialisé dans la création d'applications web modernes, d'expériences 3D immersives et de solutions numériques innovantes. Mon travail s'étend des sites web et applications web responsives (React, Next.js, TypeScript) aux projets 3D complexes (Unity, Unreal Engine), couvrant des domaines variés allant des solutions d'entreprise (Simvia - Groupe EDF) aux plateformes innovantes (Entrave, Virtualsomm) et expériences de jeu."}
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
                   {language === "en"
@@ -338,12 +350,36 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
+              title={language === "en" ? "Virtualsomm" : "Virtualsomm"}
+              description={projectDescriptions[language].virtualsomm}
+              tags={["React", "Next.js", "TypeScript", "Tailwind CSS", "UI/UX"]}
+              image="/images/VirtualSomm.svg"
+              demoUrl="https://restaurant.virtualsomm.ch/"
+              date="2025"
+            />
+            <ProjectCard
+              title={language === "en" ? "Simvia - EDF Group" : "Simvia - Groupe EDF"}
+              description={projectDescriptions[language].simvia}
+              tags={["React", "Next.js", "TypeScript", "Tailwind CSS", "Frontend", "UI/UX"]}
+              image="/images/simvia-logo.f8594fbe.svg"
+              demoUrl="https://simvia.tech/"
+              date="2024"
+            />
+            <ProjectCard
+              title={language === "en" ? "Entrave" : "Entrave"}
+              description={projectDescriptions[language].entrave}
+              tags={["React", "Next.js", "TypeScript", "Tailwind CSS", "UI/UX"]}
+              image="/images/logo-entrave.png"
+              demoUrl="https://entrave.com/"
+              date="2024"
+            />
+            <ProjectCard
               title={language === "en" ? "Wanteed App & Website" : "Application Wanteed & Site Web"}
               description={projectDescriptions[language].wanteedApp}
               tags={["FlutterFlow", "Webflow", "UI/UX", "Figma", "iOS", "Android", "Firebase"]}
               image="/images/wanteed-logo.png"
               demoUrl="https://wanteed.io"
-              repoUrl="https://github.com/HenriqueMARTINS9"
+              date="2024"
             />
             <ProjectCard
               title={language === "en" ? "Telegram AI Chat Bot" : "Bot de Chat IA Telegram"}
@@ -351,15 +387,7 @@ export default function Portfolio() {
               tags={["Telegram API", "AI", "Node.js", "API Integration", "Python", "Docker", "Redis"]}
               image="/images/telegram-logo-circle.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com/HenriqueMARTINS9"
-            />
-            <ProjectCard
-              title={language === "en" ? "Unity Runner Game" : "Jeu Unity Runner"}
-              description={projectDescriptions[language].unityGames}
-              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
-              image="/images/unity-logo.png"
-              demoUrl="https://cobalt-runner-v1.vercel.app/"
-              repoUrl="https://github.com/HenriqueMARTINS9/CobaltRunnerV1"
+              date="2024"
             />
             <ProjectCard
               title={language === "en" ? "Immersive Store Unreal Engine 5" : "Magasin Immersif Unreal Engine 5"}
@@ -367,7 +395,15 @@ export default function Portfolio() {
               tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++", "AWS S3"]}
               image="/images/unreal-engine-logo-white.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com/HenriqueMARTINS9"
+              date="2023-2024"
+            />
+            <ProjectCard
+              title={language === "en" ? "Unity Runner Game" : "Jeu Unity Runner"}
+              description={projectDescriptions[language].unityGames}
+              tags={["Unity", "C#", "WebGL", "2D/3D", "Firebase", "GCP"]}
+              image="/images/unity-logo.png"
+              demoUrl="https://cobalt-runner-v1.vercel.app/"
+              date="2023"
             />
             <ProjectCard
               title={language === "en" ? "Websites" : "Sites Web"}
@@ -375,7 +411,7 @@ export default function Portfolio() {
               tags={["React", "Vue", "Angular", "AWS S3", "Node.JS", "TailwinCSS", "Vercel", "Metamask"]}
               image="/images/CobaltLogo.svg"
               demoUrl="https://cobalt.shop/"
-              repoUrl="https://github.com/HenriqueMARTINS9"
+              date="2021-2024"
             />
             <ProjectCard
               title={language === "en" ? "Decentraland Metaverse" : "Métaverse Decentraland"}
@@ -383,7 +419,7 @@ export default function Portfolio() {
               tags={["Decentraland", "3D", "Metaverse", "WebGL", "TypeScript"]}
               image="/images/decentraland-scene.png"
               demoUrl="https://decentraland.org"
-              repoUrl="https://github.com/HenriqueMARTINS9"
+              date="2021-2023"
             />
           </div>
         </div>

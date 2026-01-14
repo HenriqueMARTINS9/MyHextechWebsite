@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowUpRight, Github } from "lucide-react"
+import { ArrowUpRight, Calendar } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -14,10 +14,10 @@ interface ProjectCardProps {
   tags: string[]
   image: string
   demoUrl: string
-  repoUrl: string
+  date: string
 }
 
-export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl }: ProjectCardProps) {
+export function ProjectCard({ title, description, tags, image, demoUrl, date }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -45,14 +45,19 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
                 image?.includes("unity-logo") ||
                 image?.includes("unreal-engine-logo") ||
                 image?.includes("framer-logo") ||
-                image?.includes("telegram-logo")
+                image?.includes("telegram-logo") ||
+                image?.includes("logo-entrave") ||
+                image?.includes("VirtualSomm") ||
+                image?.includes("CobaltLogo") ||
+                image?.includes("simvia-logo") ||
+                image?.includes("wanteed-logo")
                   ? "object-contain bg-white p-8"
                   : "object-cover"
               }`}
             />
           </div>
 
-          <div className="p-6 flex-grow">
+          <div className="p-6 flex-grow flex flex-col">
             <h3 className="text-xl font-bold mb-2">{title}</h3>
             <p className="text-zinc-400 mb-4">{description}</p>
 
@@ -64,13 +69,11 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
               ))}
             </div>
 
-            <div className="flex justify-between mt-auto pt-4 border-t border-zinc-700/50">
-              <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white hover:bg-zinc-700/50" asChild>
-                <Link href={repoUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
-                  Code
-                </Link>
-              </Button>
+            <div className="flex justify-between items-center mt-auto pt-4 border-t border-zinc-700/50">
+              <div className="flex items-center gap-2 text-zinc-400 text-sm">
+                <Calendar className="h-4 w-4" />
+                <span>{date}</span>
+              </div>
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
