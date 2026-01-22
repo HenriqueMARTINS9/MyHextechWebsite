@@ -372,7 +372,7 @@ export default function Portfolio() {
               tags={["React", "Next.js", "TypeScript", "Tailwind CSS", "UI/UX"]}
               image="/images/VirtualSomm.svg"
               demoUrl="https://restaurant.virtualsomm.ch/"
-              date="2025"
+              date="2026"
             />
             <ProjectCard
               title={language === "en" ? "Simvia - EDF Group" : "Simvia - Groupe EDF"}
@@ -380,7 +380,7 @@ export default function Portfolio() {
               tags={["React", "Next.js", "TypeScript", "Tailwind CSS", "Frontend", "UI/UX"]}
               image="/images/simvia-logo.f8594fbe.svg"
               demoUrl="https://simvia.tech/"
-              date="2024"
+              date="2025"
             />
             <ProjectCard
               title={language === "en" ? "Entrave" : "Entrave"}
@@ -388,7 +388,7 @@ export default function Portfolio() {
               tags={["React", "Next.js", "TypeScript", "Tailwind CSS", "UI/UX"]}
               image="/images/logo-entrave.png"
               demoUrl="https://entrave.com/"
-              date="2024"
+              date="2025"
             />
             <ProjectCard
               title={language === "en" ? "Wanteed App & Website" : "Application Wanteed & Site Web"}
@@ -396,7 +396,7 @@ export default function Portfolio() {
               tags={["FlutterFlow", "Webflow", "UI/UX", "Figma", "iOS", "Android", "Firebase"]}
               image="/images/wanteed-logo.png"
               demoUrl="https://wanteed.io"
-              date="2024"
+              date="2025"
             />
             <ProjectCard
               title={language === "en" ? "Telegram AI Chat Bot" : "Bot de Chat IA Telegram"}
@@ -404,7 +404,7 @@ export default function Portfolio() {
               tags={["Telegram API", "AI", "Node.js", "API Integration", "Python", "Docker", "Redis"]}
               image="/images/telegram-logo-circle.png"
               demoUrl="https://example.com"
-              date="2024"
+              date="2025"
             />
             <ProjectCard
               title={language === "en" ? "Immersive Store Unreal Engine 5" : "Magasin Immersif Unreal Engine 5"}
