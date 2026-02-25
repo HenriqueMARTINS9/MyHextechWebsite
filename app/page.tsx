@@ -287,6 +287,7 @@ export default function Portfolio() {
                 <SkillBadge name="React" level={90} />
                 <SkillBadge name="WordPress" level={90} />
                 <SkillBadge name="TypeScript" level={90} />
+                <SkillBadge name="Flutterflow" level={90} />
                 <SkillBadge name="Tailwind CSS" level={85} />
                 <SkillBadge name="Vue" level={80} />
                 <SkillBadge name="WebFlow" level={80} />
@@ -299,7 +300,6 @@ export default function Portfolio() {
             <div className="space-y-6">
               <SectionSubHeading title="Backend, DevOps & Cloud" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <SkillBadge name="Flutterflow" level={90} />
                 <SkillBadge name="Python" level={85} />
                 <SkillBadge name="C#" level={85} />
                 <SkillBadge name="FastAPI" level={80} />
@@ -332,7 +332,6 @@ export default function Portfolio() {
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="PyTorch" level={85} />
                 <SkillBadge name="TensorFlow" level={85} />
-                <SkillBadge name="Hugging Face" level={80} />
                 <SkillBadge name="scikit-learn" level={80} />
                 <SkillBadge name="Pandas" level={80} />
                 <SkillBadge name="NumPy" level={80} />
