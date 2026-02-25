@@ -34,8 +34,8 @@ export default function Portfolio() {
 
   const downloadCV = () => {
     const link = document.createElement("a")
-    link.href = "/CV-HenriqueMARTINS-MyHextech-072025.pdf"
-    link.download = "CV-HenriqueMARTINS-MyHextech-072025.pdf"
+    link.href = "/CV-HenriqueMARTINS-MyHextech-022626.pdf"
+    link.download = "CV-HenriqueMARTINS-MyHextech-022626.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -252,8 +252,8 @@ export default function Portfolio() {
 
                 <div className="mt-8">
                   <a
-                    href="/CV-HenriqueMARTINS-MyHextech-072025.pdf"
-                    download="CV-HenriqueMARTINS-MyHextech-072025.pdf"
+                    href="/CV-HenriqueMARTINS-MyHextech-022626.pdf"
+                    download="CV-HenriqueMARTINS-MyHextech-022626.pdf"
                     className="inline-flex items-center bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded text-sm font-medium"
                   >
                     <Download className="mr-2 h-4 w-4" />
