@@ -282,15 +282,15 @@ export default function Portfolio() {
               <SectionSubHeading title="Frontend & UI" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <SkillBadge name="HTML/CSS" level={95} />
-                <SkillBadge name="JavaScript" level={90} />
-                <SkillBadge name="TypeScript" level={85} />
-                <SkillBadge name="React" level={90} />
-                <SkillBadge name="Angular" level={75} />
-                <SkillBadge name="Vue" level={80} />
-                <SkillBadge name="Tailwind CSS" level={85} />
                 <SkillBadge name="Framer" level={95} />
+                <SkillBadge name="JavaScript" level={90} />
+                <SkillBadge name="React" level={90} />
                 <SkillBadge name="WordPress" level={90} />
+                <SkillBadge name="TypeScript" level={90} />
+                <SkillBadge name="Tailwind CSS" level={85} />
+                <SkillBadge name="Vue" level={80} />
                 <SkillBadge name="WebFlow" level={80} />
+                <SkillBadge name="Angular" level={75} />
                 <SkillBadge name="Flutter" level={70} />
               </div>
             </div>
@@ -299,22 +299,45 @@ export default function Portfolio() {
             <div className="space-y-6">
               <SectionSubHeading title="Backend, DevOps & Cloud" />
               <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <SkillBadge name="Node.js" level={70} />
-                <SkillBadge name="Laravel" level={70} />
-                <SkillBadge name="Django" level={75} />
-                <SkillBadge name="Symfony" level={70} />
+                <SkillBadge name="Flutterflow" level={90} />
+                <SkillBadge name="Python" level={85} />
+                <SkillBadge name="C#" level={85} />
                 <SkillBadge name="FastAPI" level={80} />
+                <SkillBadge name="Firebase" level={80} />
+                <SkillBadge name="Vercel" level={80} />
+                <SkillBadge name="Git" level={80} />
+                <SkillBadge name="Java" level={80} />
+                <SkillBadge name="C" level={80} />
+                <SkillBadge name="C++" level={80} />
+                <SkillBadge name="Supabase" level={80} />
+                <SkillBadge name="Django" level={75} />
                 <SkillBadge name="MongoDB" level={75} />
                 <SkillBadge name="PostgreSQL" level={75} />
                 <SkillBadge name="MySQL" level={75} />
-                <SkillBadge name="Redis" level={70} />
-                <SkillBadge name="Firebase" level={80} />
-                <SkillBadge name="AWS" level={65} />
-                <SkillBadge name="Vercel" level={80} />
-                <SkillBadge name="Docker" level={70} />
                 <SkillBadge name="GCP" level={75} />
-                <SkillBadge name="Git" level={80} />
+                <SkillBadge name="Node.js" level={70} />
+                <SkillBadge name="Laravel" level={70} />
+                <SkillBadge name="Symfony" level={70} />
+                <SkillBadge name="Redis" level={70} />
+                <SkillBadge name="Docker" level={70} />
+                <SkillBadge name="Spring Boot" level={70} />
+                <SkillBadge name="AWS" level={65} />
                 <SkillBadge name="CI/CD" level={60} />
+              </div>
+            </div>
+
+            {/* IA */}
+            <div className="space-y-6">
+              <SectionSubHeading title="IA (Python)" />
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="PyTorch" level={85} />
+                <SkillBadge name="TensorFlow" level={85} />
+                <SkillBadge name="Hugging Face" level={80} />
+                <SkillBadge name="scikit-learn" level={80} />
+                <SkillBadge name="Pandas" level={80} />
+                <SkillBadge name="NumPy" level={80} />
+                <SkillBadge name="Jupyter" level={75} />
+                <SkillBadge name="OpenCV" level={75} />
               </div>
             </div>
 
