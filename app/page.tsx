@@ -321,6 +321,7 @@ export default function Portfolio() {
                 <SkillBadge name="Redis" level={70} />
                 <SkillBadge name="Docker" level={70} />
                 <SkillBadge name="Spring Boot" level={70} />
+                <SkillBadge name="NX Open Grip" level={70} />
                 <SkillBadge name="AWS" level={65} />
                 <SkillBadge name="CI/CD" level={60} />
               </div>
