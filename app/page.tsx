@@ -310,6 +310,7 @@ export default function Portfolio() {
                 <SkillBadge name="C" level={80} />
                 <SkillBadge name="C++" level={80} />
                 <SkillBadge name="Supabase" level={80} />
+                <SkillBadge name="Oracle" level={80} />
                 <SkillBadge name="Django" level={75} />
                 <SkillBadge name="MongoDB" level={75} />
                 <SkillBadge name="PostgreSQL" level={75} />
