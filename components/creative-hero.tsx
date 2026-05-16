@@ -20,28 +20,32 @@ export function CreativeHero() {
     if (!ctx) return
 
     let devicePixelRatio: number
+    let animationFrameId: number
+    const particlesArray: Particle[] = []
 
     // Set canvas dimensions
     const setCanvasDimensions = () => {
       devicePixelRatio = window.devicePixelRatio || 1
       const rect = canvas.getBoundingClientRect()
+      const width = Math.max(1, Math.floor(rect.width))
+      const height = Math.max(1, Math.floor(rect.height))
 
-      canvas.width = rect.width * devicePixelRatio
-      canvas.height = rect.height * devicePixelRatio
+      canvas.width = Math.round(width * devicePixelRatio)
+      canvas.height = Math.round(height * devicePixelRatio)
 
-      ctx.scale(devicePixelRatio, devicePixelRatio)
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0)
     }
 
-    const getTextLayout = (canvasWidth: number, canvasHeight: number) => {
+    const getTextLayout = (layoutContext: CanvasRenderingContext2D, canvasWidth: number, canvasHeight: number) => {
       const maxTextWidth = canvasWidth * TEXT_WIDTH_RATIO
       const maxTextHeight = canvasHeight * TEXT_HEIGHT_RATIO
       let fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, Math.min(canvasWidth * 0.11, maxTextHeight)))
 
-      ctx.font = `bold ${fontSize}px Arial`
+      layoutContext.font = `bold ${fontSize}px Arial`
 
-      while (ctx.measureText(HERO_TEXT).width > maxTextWidth && fontSize > MIN_FONT_SIZE) {
+      while (layoutContext.measureText(HERO_TEXT).width > maxTextWidth && fontSize > MIN_FONT_SIZE) {
         fontSize -= 2
-        ctx.font = `bold ${fontSize}px Arial`
+        layoutContext.font = `bold ${fontSize}px Arial`
       }
 
       return {
@@ -97,8 +101,8 @@ export function CreativeHero() {
         const dy = mouseY - this.y
         this.distance = Math.sqrt(dx * dx + dy * dy)
 
-        const forceDirectionX = dx / this.distance
-        const forceDirectionY = dy / this.distance
+        const forceDirectionX = this.distance === 0 ? 0 : dx / this.distance
+        const forceDirectionY = this.distance === 0 ? 0 : dy / this.distance
 
         const maxDistance = 100
         const force = (maxDistance - this.distance) / maxDistance
@@ -131,25 +135,30 @@ export function CreativeHero() {
       }
     }
 
-    // Create particle text
-    const particlesArray: Particle[] = []
-
     function init() {
       if (!canvas || !ctx) return
       particlesArray.length = 0
 
-      const canvasWidth = canvas.width / devicePixelRatio
-      const canvasHeight = canvas.height / devicePixelRatio
+      const rect = canvas.getBoundingClientRect()
+      const canvasWidth = Math.max(1, Math.floor(rect.width))
+      const canvasHeight = Math.max(1, Math.floor(rect.height))
+      const textCanvas = document.createElement("canvas")
+      const textContext = textCanvas.getContext("2d")
+
+      if (!textContext) return
+
+      textCanvas.width = canvasWidth
+      textCanvas.height = canvasHeight
 
       // Create text
-      const { particleScale, particleStep } = getTextLayout(canvasWidth, canvasHeight)
-      ctx.fillStyle = "white"
-      ctx.textAlign = "center"
-      ctx.textBaseline = "middle"
-      ctx.fillText(HERO_TEXT, canvasWidth / 2, canvasHeight / 2)
+      const { particleScale, particleStep } = getTextLayout(textContext, canvasWidth, canvasHeight)
+      textContext.fillStyle = "white"
+      textContext.textAlign = "center"
+      textContext.textBaseline = "middle"
+      textContext.fillText(HERO_TEXT, canvasWidth / 2, canvasHeight / 2)
 
       // Get image data
-      const textCoordinates = ctx.getImageData(0, 0, canvasWidth, canvasHeight)
+      const textCoordinates = textContext.getImageData(0, 0, canvasWidth, canvasHeight)
 
       // Clear canvas
       ctx.clearRect(0, 0, canvasWidth, canvasHeight)
@@ -171,7 +180,10 @@ export function CreativeHero() {
     // Animation loop
     const animate = () => {
       if (!canvas || !ctx) return
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      const rect = canvas.getBoundingClientRect()
+      const canvasWidth = Math.max(1, Math.floor(rect.width))
+      const canvasHeight = Math.max(1, Math.floor(rect.height))
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight)
 
       // Smooth mouse following
       mouseX += (targetX - mouseX) * 0.1
@@ -199,7 +211,7 @@ export function CreativeHero() {
         }
       }
 
-      requestAnimationFrame(animate)
+      animationFrameId = requestAnimationFrame(animate)
     }
 
     animate()
@@ -208,6 +220,7 @@ export function CreativeHero() {
     window.addEventListener("resize", init)
 
     return () => {
+      cancelAnimationFrame(animationFrameId)
       window.removeEventListener("resize", setCanvasDimensions)
       window.removeEventListener("resize", init)
     }
