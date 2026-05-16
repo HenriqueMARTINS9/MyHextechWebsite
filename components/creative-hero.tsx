@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
 const HERO_TEXT = "MyHextech"
-const MIN_FONT_SIZE = 64
-const MAX_FONT_SIZE = 108
-const TEXT_WIDTH_RATIO = 0.82
-const TEXT_HEIGHT_RATIO = 0.32
+const MIN_FONT_SIZE = 88
+const MAX_FONT_SIZE = 150
+const TEXT_WIDTH_RATIO = 0.94
+const TEXT_HEIGHT_RATIO = 0.44
 
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -39,7 +39,7 @@ export function CreativeHero() {
     const getTextLayout = (layoutContext: CanvasRenderingContext2D, canvasWidth: number, canvasHeight: number) => {
       const maxTextWidth = canvasWidth * TEXT_WIDTH_RATIO
       const maxTextHeight = canvasHeight * TEXT_HEIGHT_RATIO
-      let fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, Math.min(canvasWidth * 0.11, maxTextHeight)))
+      let fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, Math.min(canvasWidth * 0.2, maxTextHeight)))
 
       layoutContext.font = `bold ${fontSize}px Arial`
 
@@ -50,7 +50,7 @@ export function CreativeHero() {
 
       return {
         fontSize,
-        particleStep: Math.max(6, Math.round(fontSize / 15)),
+        particleStep: Math.max(7, Math.round(fontSize / 16)),
         particleScale: fontSize / MAX_FONT_SIZE,
       }
     }
