@@ -3,6 +3,12 @@
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
+const HERO_TEXT = "MyHextech"
+const MIN_FONT_SIZE = 54
+const MAX_FONT_SIZE = 92
+const TEXT_WIDTH_RATIO = 0.68
+const TEXT_HEIGHT_RATIO = 0.26
+
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -24,6 +30,25 @@ export function CreativeHero() {
       canvas.height = rect.height * devicePixelRatio
 
       ctx.scale(devicePixelRatio, devicePixelRatio)
+    }
+
+    const getTextLayout = (canvasWidth: number, canvasHeight: number) => {
+      const maxTextWidth = canvasWidth * TEXT_WIDTH_RATIO
+      const maxTextHeight = canvasHeight * TEXT_HEIGHT_RATIO
+      let fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, Math.min(canvasWidth * 0.11, maxTextHeight)))
+
+      ctx.font = `bold ${fontSize}px Arial`
+
+      while (ctx.measureText(HERO_TEXT).width > maxTextWidth && fontSize > MIN_FONT_SIZE) {
+        fontSize -= 2
+        ctx.font = `bold ${fontSize}px Arial`
+      }
+
+      return {
+        fontSize,
+        particleStep: Math.max(6, Math.round(fontSize / 14)),
+        particleScale: fontSize / MAX_FONT_SIZE,
+      }
     }
 
     setCanvasDimensions()
@@ -52,12 +77,12 @@ export function CreativeHero() {
       color: string
       distance: number
 
-      constructor(x: number, y: number) {
+      constructor(x: number, y: number, particleScale: number) {
         this.x = x
         this.y = y
         this.baseX = x
         this.baseY = y
-        this.size = Math.random() * 3 + 1
+        this.size = (Math.random() * 2.6 + 0.9) * particleScale
         this.density = Math.random() * 30 + 1
         this.distance = 0
 
@@ -117,10 +142,11 @@ export function CreativeHero() {
       const canvasHeight = canvas.height / devicePixelRatio
 
       // Create text
+      const { particleScale, particleStep } = getTextLayout(canvasWidth, canvasHeight)
       ctx.fillStyle = "white"
-      ctx.font = "bold 120px Arial"
       ctx.textAlign = "center"
-      ctx.fillText("MyHextech", canvasWidth / 2, canvasHeight / 2)
+      ctx.textBaseline = "middle"
+      ctx.fillText(HERO_TEXT, canvasWidth / 2, canvasHeight / 2)
 
       // Get image data
       const textCoordinates = ctx.getImageData(0, 0, canvasWidth, canvasHeight)
@@ -129,12 +155,12 @@ export function CreativeHero() {
       ctx.clearRect(0, 0, canvasWidth, canvasHeight)
 
       // Create particles based on text pixels
-      for (let y = 0; y < textCoordinates.height; y += 8) {
-        for (let x = 0; x < textCoordinates.width; x += 8) {
+      for (let y = 0; y < textCoordinates.height; y += particleStep) {
+        for (let x = 0; x < textCoordinates.width; x += particleStep) {
           if (textCoordinates.data[y * 4 * textCoordinates.width + x * 4 + 3] > 128) {
             const positionX = x
             const positionY = y
-            particlesArray.push(new Particle(positionX, positionY))
+            particlesArray.push(new Particle(positionX, positionY, particleScale))
           }
         }
       }
@@ -189,7 +215,7 @@ export function CreativeHero() {
 
   return (
     <motion.div
-      className="w-full sm:h-[400px] md:h-[500px] relative"
+      className="w-full sm:h-[360px] md:h-[420px] xl:h-[460px] 2xl:h-[500px] relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

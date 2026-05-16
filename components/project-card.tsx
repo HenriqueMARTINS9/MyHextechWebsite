@@ -19,6 +19,17 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, tags, image, demoUrl, date }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const isWeareventsLogo = image?.includes("logo-wearevents")
+  const isContainedLogo =
+    image?.includes("unity-logo") ||
+    image?.includes("unreal-engine-logo") ||
+    image?.includes("framer-logo") ||
+    image?.includes("telegram-logo") ||
+    image?.includes("logo-entrave") ||
+    image?.includes("VirtualSomm") ||
+    image?.includes("CobaltLogo") ||
+    image?.includes("simvia-logo") ||
+    image?.includes("wanteed-logo")
 
   return (
     <motion.div
@@ -42,15 +53,9 @@ export function ProjectCard({ title, description, tags, image, demoUrl, date }: 
               src={image || "/placeholder.svg"}
               alt={title}
               className={`w-full h-full transition-transform duration-700 ${isHovered ? "scale-110" : "scale-100"} ${
-                image?.includes("unity-logo") ||
-                image?.includes("unreal-engine-logo") ||
-                image?.includes("framer-logo") ||
-                image?.includes("telegram-logo") ||
-                image?.includes("logo-entrave") ||
-                image?.includes("VirtualSomm") ||
-                image?.includes("CobaltLogo") ||
-                image?.includes("simvia-logo") ||
-                image?.includes("wanteed-logo")
+                isWeareventsLogo
+                  ? "object-contain bg-zinc-950 p-8"
+                  : isContainedLogo
                   ? "object-contain bg-white p-8"
                   : "object-cover"
               }`}

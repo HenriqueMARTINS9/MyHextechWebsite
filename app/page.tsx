@@ -63,6 +63,8 @@ export default function Portfolio() {
         "Virtual sommelier application for restaurants, democratizing access to wine expertise by providing interactive recommendations and wine discovery experiences.",
       simvia:
         "Frontend development for Simvia, EDF Group's subsidiary specialized in open-source software for industrial engineering calculation and simulation, focusing on modern and user-friendly interface design.",
+      wearevents:
+        "Event website for Wearevents built with React/Vite and TypeScript, powered by Supabase, S3 storage, and Edge Functions for content and backend workflows.",
     },
     fr: {
       decentralandMetaverse:
@@ -85,6 +87,8 @@ export default function Portfolio() {
         "Application de sommellerie virtuelle pour restaurants, démocratisant l'accès à l'expertise en vins en proposant des recommandations interactives et des expériences de découverte.",
       simvia:
         "Développement frontend pour Simvia, filiale du groupe EDF spécialisée dans l'édition de logiciels open source pour le calcul et la simulation en ingénierie industrielle, avec un focus sur le design d'interface moderne et conviviale.",
+      wearevents:
+        "Site internet événementiel Wearevents développé avec React/Vite et TypeScript, propulsé par Supabase, le stockage S3 et des Edge Functions pour les contenus et workflows backend.",
     },
   }
 
@@ -390,6 +394,14 @@ export default function Portfolio() {
           <SectionHeading title={t("projects.title")} subtitle={t("projects.subtitle")} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <ProjectCard
+              title={language === "en" ? "Wearevents Website" : "Site Internet Wearevents"}
+              description={projectDescriptions[language].wearevents}
+              tags={["React", "Vite", "TypeScript", "Supabase", "S3", "Edge Functions"]}
+              image="/images/logo-wearevents.svg"
+              demoUrl="https://wearevents.fr/"
+              date="2026"
+            />
             <ProjectCard
               title={language === "en" ? "Virtualsomm" : "Virtualsomm"}
               description={projectDescriptions[language].virtualsomm}
