@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
 const HERO_TEXT = "MyHextech"
-const MIN_FONT_SIZE = 54
-const MAX_FONT_SIZE = 92
-const TEXT_WIDTH_RATIO = 0.68
-const TEXT_HEIGHT_RATIO = 0.26
+const MIN_FONT_SIZE = 64
+const MAX_FONT_SIZE = 108
+const TEXT_WIDTH_RATIO = 0.82
+const TEXT_HEIGHT_RATIO = 0.32
 
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -50,7 +50,7 @@ export function CreativeHero() {
 
       return {
         fontSize,
-        particleStep: Math.max(6, Math.round(fontSize / 14)),
+        particleStep: Math.max(6, Math.round(fontSize / 15)),
         particleScale: fontSize / MAX_FONT_SIZE,
       }
     }
