@@ -346,6 +346,16 @@ export default function Portfolio() {
               </div>
             </div>
 
+            {/* IA */}
+            <div className="space-y-6">
+              <SectionSubHeading title="IA agents" />
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="Cursor" level={90} />
+                <SkillBadge name="Codex" level={85} />
+                <SkillBadge name="Claude Code" level={80} />
+              </div>
+            </div>
+
             {/* Game Development */}
             <div className="space-y-6">
               <SectionSubHeading title="Game Development" />
