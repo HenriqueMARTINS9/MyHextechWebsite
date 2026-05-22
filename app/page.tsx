@@ -429,7 +429,7 @@ export default function Portfolio() {
             <ProjectCard
               title={language === "en" ? "Wanteed App & Website" : "Application Wanteed & Site Web"}
               description={projectDescriptions[language].wanteedApp}
-              tags={["FlutterFlow", "Webflow", "UI/UX", "Figma", "iOS", "Android", "Firebase"]}
+              tags={["React", "React Native", "FlutterFlow", "Webflow", "UI/UX", "Figma", "iOS", "Android", "Firebase"]}
               image="/images/wanteed-logo.png"
               demoUrl="https://wanteed.io"
               date="2025"
