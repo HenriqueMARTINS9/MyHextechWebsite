@@ -246,7 +246,7 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.location")}</div>
-                    <div className="font-medium">Eure et Loir, France</div>
+                    <div className="font-medium">Île-de-France, France</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">{t("about.availability")}</div>
