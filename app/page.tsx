@@ -65,6 +65,8 @@ export default function Portfolio() {
         "Frontend development for Simvia, EDF Group's subsidiary specialized in open-source software for industrial engineering calculation and simulation, focusing on modern and user-friendly interface design.",
       wearevents:
         "Event website for Wearevents built with React/Vite and TypeScript, powered by Supabase, S3 storage, and Edge Functions for content and backend workflows.",
+      pointJaponVoyage:
+        "Website for Point Japon Voyage, designed to present Japan travel offers with a polished brand identity, clear browsing flow, and responsive experience.",
     },
     fr: {
       decentralandMetaverse:
@@ -89,6 +91,8 @@ export default function Portfolio() {
         "Développement frontend pour Simvia, filiale du groupe EDF spécialisée dans l'édition de logiciels open source pour le calcul et la simulation en ingénierie industrielle, avec un focus sur le design d'interface moderne et conviviale.",
       wearevents:
         "Site internet événementiel Wearevents développé avec React/Vite et TypeScript, propulsé par Supabase, le stockage S3 et des Edge Functions pour les contenus et workflows backend.",
+      pointJaponVoyage:
+        "Site web dédié à Point Japon Voyage, conçu pour présenter une offre de voyages au Japon avec une identité visuelle soignée, un parcours clair et une expérience responsive.",
     },
   }
 
@@ -404,6 +408,14 @@ export default function Portfolio() {
           <SectionHeading title={t("projects.title")} subtitle={t("projects.subtitle")} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <ProjectCard
+              title="Point Japon Voyage"
+              description={projectDescriptions[language].pointJaponVoyage}
+              tags={["Web Design", "Responsive", "UI/UX", "SEO", "Branding"]}
+              image="/images/point-japon-voyage-logo.png"
+              demoUrl="https://pointjaponvoyage.fr/"
+              date="2026"
+            />
             <ProjectCard
               title={language === "en" ? "Wearevents Website" : "Site Internet Wearevents"}
               description={projectDescriptions[language].wearevents}

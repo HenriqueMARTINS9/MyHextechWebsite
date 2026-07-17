@@ -29,7 +29,8 @@ export function ProjectCard({ title, description, tags, image, demoUrl, date }: 
     image?.includes("VirtualSomm") ||
     image?.includes("CobaltLogo") ||
     image?.includes("simvia-logo") ||
-    image?.includes("wanteed-logo")
+    image?.includes("wanteed-logo") ||
+    image?.includes("point-japon-voyage-logo")
 
   return (
     <motion.div
