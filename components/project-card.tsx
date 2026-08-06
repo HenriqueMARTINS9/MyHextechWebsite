@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowUpRight, Calendar } from "lucide-react"
+import { ArrowUpRight, Calendar, LockKeyhole } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -13,11 +13,22 @@ interface ProjectCardProps {
   description: string
   tags: string[]
   image: string
-  demoUrl: string
+  demoUrl?: string
+  demoLabel?: string
+  statusLabel?: string
   date: string
 }
 
-export function ProjectCard({ title, description, tags, image, demoUrl, date }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  image,
+  demoUrl,
+  demoLabel = "Live Demo",
+  statusLabel = "Client project",
+  date,
+}: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const isWeareventsLogo = image?.includes("logo-wearevents")
   const isContainedLogo =
@@ -80,16 +91,23 @@ export function ProjectCard({ title, description, tags, image, demoUrl, date }: 
                 <Calendar className="h-4 w-4" />
                 <span>{date}</span>
               </div>
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
-                asChild
-              >
-                <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
-                  Live Demo
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              {demoUrl ? (
+                <Button
+                  size="sm"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
+                  asChild
+                >
+                  <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
+                    {demoLabel}
+                    <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              ) : (
+                <div className="flex items-center gap-2 text-zinc-400 text-sm" title={statusLabel}>
+                  <LockKeyhole className="h-4 w-4" />
+                  <span>{statusLabel}</span>
+                </div>
+              )}
             </div>
           </div>
 

@@ -67,6 +67,10 @@ export default function Portfolio() {
         "Event website for Wearevents built with React/Vite and TypeScript, powered by Supabase, S3 storage, and Edge Functions for content and backend workflows.",
       pointJaponVoyage:
         "Website for Point Japon Voyage, designed to present Japan travel offers with a polished brand identity, clear browsing flow, and responsive experience.",
+      miaParis:
+        "AI-powered CRM connected to the client's inbox through My Claw. It summarizes each day's emails, organizes the CRM around prioritized follow-up tasks, and suggests which messages should be sent or skipped.",
+      textileSnap:
+        "Fabric recognition application created for Dandy's. A photo identifies a textile, retrieves its product details, and makes inventory management reliable even when the original label is missing.",
     },
     fr: {
       decentralandMetaverse:
@@ -93,6 +97,10 @@ export default function Portfolio() {
         "Site internet événementiel Wearevents développé avec React/Vite et TypeScript, propulsé par Supabase, le stockage S3 et des Edge Functions pour les contenus et workflows backend.",
       pointJaponVoyage:
         "Site web dédié à Point Japon Voyage, conçu pour présenter une offre de voyages au Japon avec une identité visuelle soignée, un parcours clair et une expérience responsive.",
+      miaParis:
+        "CRM intelligent connecté à la messagerie du client via My Claw. L'IA résume les e-mails de la journée, organise le CRM autour des tâches prioritaires et suggère les messages à envoyer ou à écarter.",
+      textileSnap:
+        "Application de reconnaissance de tissus conçue pour Dandy's. Une photo permet d'identifier un textile, de retrouver ses informations et de fiabiliser la gestion du stock, même lorsque l'étiquette d'origine a disparu.",
     },
   }
 
@@ -409,6 +417,22 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
+              title="MIA PARIS — CRM IA"
+              description={projectDescriptions[language].miaParis}
+              tags={["CRM", "My Claw", "AI Agents", "Email Automation", "Workflow Automation"]}
+              image="/images/mia-paris-crm.svg"
+              statusLabel={language === "en" ? "Client project" : "Projet client"}
+              date="2026"
+            />
+            <ProjectCard
+              title="Textile Snap — Dandy's"
+              description={projectDescriptions[language].textileSnap}
+              tags={["Computer Vision", "AI", "Fabric Recognition", "Inventory Management", "Mobile App"]}
+              image="/images/textile-snap-dandys.svg"
+              statusLabel={language === "en" ? "Client project" : "Projet client"}
+              date="2026"
+            />
+            <ProjectCard
               title="Point Japon Voyage"
               description={projectDescriptions[language].pointJaponVoyage}
               tags={["Web Design", "Responsive", "UI/UX", "SEO", "Branding"]}
@@ -461,7 +485,7 @@ export default function Portfolio() {
               description={projectDescriptions[language].telegramBot}
               tags={["Telegram API", "AI", "Node.js", "API Integration", "Python", "Docker", "Redis"]}
               image="/images/telegram-logo-circle.png"
-              demoUrl="https://example.com"
+              statusLabel={language === "en" ? "Client project" : "Projet client"}
               date="2025"
             />
             <ProjectCard
@@ -469,7 +493,7 @@ export default function Portfolio() {
               description={projectDescriptions[language].unrealEngine}
               tags={["Unreal Engine 5", "AWS GameLift", "PixelStreaming", "C++", "AWS S3"]}
               image="/images/unreal-engine-logo-white.png"
-              demoUrl="https://example.com"
+              demoUrl="https://x.com/cobalt_shop/status/1818209959311503666/video/1?s=46"
               date="2023-2024"
             />
             <ProjectCard

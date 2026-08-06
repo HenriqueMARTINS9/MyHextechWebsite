@@ -1,0 +1,76 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="background" x1="44" y1="46" x2="1148" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18130F"/>
+      <stop offset="0.52" stop-color="#29201B"/>
+      <stop offset="1" stop-color="#3B2B25"/>
+    </linearGradient>
+    <linearGradient id="linen" x1="575" y1="110" x2="930" y2="617" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7D7C4"/>
+      <stop offset="0.5" stop-color="#B89578"/>
+      <stop offset="1" stop-color="#765443"/>
+    </linearGradient>
+    <pattern id="weave" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M0 2H18M0 8H18M0 14H18" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="2"/>
+      <path d="M2 0V18M8 0V18M14 0V18" stroke="#1C1917" stroke-opacity="0.12" stroke-width="2"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" rx="38" fill="url(#background)"/>
+  <path d="M-64 556C191 425 341 482 526 603C707 721 914 738 1262 509V780H-64V556Z" fill="#C59B78" fill-opacity="0.1"/>
+  <circle cx="1025" cy="94" r="205" fill="#E7D7C4" fill-opacity="0.07"/>
+
+  <g transform="translate(88 82)">
+    <text x="0" y="46" fill="#FAFAF9" font-family="Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="-1">Textile Snap</text>
+    <text x="3" y="79" fill="#D6C3AF" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="5">FOR DANDY'S</text>
+
+    <rect x="0" y="126" width="430" height="330" rx="28" fill="#0C0A09" fill-opacity="0.48" stroke="#E7D7C4" stroke-opacity="0.16" stroke-width="2"/>
+    <text x="30" y="166" fill="#A8A29E" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">FABRIC IDENTIFIED</text>
+    <rect x="30" y="190" width="150" height="150" rx="18" fill="#816D5B"/>
+    <rect x="30" y="190" width="150" height="150" rx="18" fill="url(#weave)"/>
+    <path d="M45 215C78 199 110 225 165 205" stroke="#F5E9DA" stroke-opacity="0.25" stroke-width="3"/>
+    <path d="M45 270C92 247 127 289 166 261" stroke="#F5E9DA" stroke-opacity="0.18" stroke-width="3"/>
+
+    <text x="205" y="218" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Wool Flannel</text>
+    <text x="205" y="247" fill="#D6D3D1" font-family="Arial, sans-serif" font-size="16">Warm taupe · 280 g/m²</text>
+    <rect x="205" y="272" width="180" height="36" rx="18" fill="#D6C3AF" fill-opacity="0.12" stroke="#D6C3AF" stroke-opacity="0.24"/>
+    <circle cx="225" cy="290" r="5" fill="#86EFAC"/>
+    <text x="238" y="296" fill="#E7E5E4" font-family="Arial, sans-serif" font-size="14">12.4 m in stock</text>
+
+    <rect x="30" y="370" width="370" height="58" rx="16" fill="#FFFFFF" fill-opacity="0.045"/>
+    <text x="50" y="394" fill="#A8A29E" font-family="Arial, sans-serif" font-size="12" font-weight="700">REFERENCE</text>
+    <text x="50" y="416" fill="#F5F5F4" font-family="Arial, sans-serif" font-size="17">DND-WF-0284</text>
+    <text x="248" y="394" fill="#A8A29E" font-family="Arial, sans-serif" font-size="12" font-weight="700">MATCH</text>
+    <text x="248" y="416" fill="#86EFAC" font-family="Arial, sans-serif" font-size="17" font-weight="700">98.6%</text>
+
+    <g transform="translate(540 28)" filter="url(#shadow)">
+      <rect width="394" height="500" rx="44" fill="#0C0A09" stroke="#E7D7C4" stroke-opacity="0.25" stroke-width="3"/>
+      <rect x="19" y="18" width="356" height="464" rx="30" fill="url(#linen)"/>
+      <rect x="19" y="18" width="356" height="464" rx="30" fill="url(#weave)" opacity="0.8"/>
+      <rect x="140" y="31" width="114" height="20" rx="10" fill="#0C0A09"/>
+
+      <path d="M57 114V77H94M300 77H337V114M57 386V423H94M300 423H337V386" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="197" cy="250" r="72" fill="#0C0A09" fill-opacity="0.36" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="4"/>
+      <circle cx="197" cy="250" r="43" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+      <path d="M177 250H217M197 230V270" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+
+      <rect x="82" y="432" width="230" height="34" rx="17" fill="#0C0A09" fill-opacity="0.64"/>
+      <circle cx="104" cy="449" r="5" fill="#86EFAC"/>
+      <text x="119" y="455" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14" font-weight="700">READY TO IDENTIFY</text>
+    </g>
+
+    <g transform="translate(887 113) rotate(9)">
+      <rect width="108" height="180" rx="16" fill="#4338CA"/>
+      <path d="M0 28H108M0 66H108M0 104H108M0 142H108" stroke="#C7D2FE" stroke-opacity="0.35" stroke-width="8"/>
+      <path d="M25 0V180M63 0V180M101 0V180" stroke="#1E1B4B" stroke-opacity="0.32" stroke-width="8"/>
+    </g>
+    <g transform="translate(876 320) rotate(-7)">
+      <rect width="124" height="166" rx="16" fill="#7F1D1D"/>
+      <path d="M0 14L124 56M0 62L124 104M0 110L124 152" stroke="#FCA5A5" stroke-opacity="0.28" stroke-width="9"/>
+      <path d="M26 0L0 76M72 0L16 166M118 0L62 166" stroke="#450A0A" stroke-opacity="0.34" stroke-width="9"/>
+    </g>
+  </g>
+</svg>
