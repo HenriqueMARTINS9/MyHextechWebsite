@@ -598,7 +598,7 @@ export default function Portfolio() {
 
       {/* Footer */}
       <footer className="border-t border-zinc-800 py-12">
-        <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="container flex flex-col xl:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">My</span>
@@ -608,6 +608,17 @@ export default function Portfolio() {
               © {new Date().getFullYear()} Henrique MARTINS. {t("footer.rights")}
             </p>
           </div>
+          <nav aria-label={language === "en" ? "Legal information" : "Informations juridiques"} className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-zinc-500">
+            <Link href="/mentions-legales" className="transition-colors hover:text-white">
+              {t("footer.legalNotice")}
+            </Link>
+            <Link href="/politique-de-confidentialite" className="transition-colors hover:text-white">
+              {t("footer.privacy")}
+            </Link>
+            <Link href="/conditions-generales" className="transition-colors hover:text-white">
+              {t("footer.terms")}
+            </Link>
+          </nav>
           <div className="flex gap-4">
             <Link href="https://github.com/HenriqueMARTINS9" target="_blank" rel="noopener noreferrer">
               <Button

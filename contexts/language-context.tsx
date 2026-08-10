@@ -69,6 +69,9 @@ const translations = {
 
     // Footer
     "footer.rights": "All rights reserved.",
+    "footer.legalNotice": "Legal notice",
+    "footer.privacy": "Privacy policy",
+    "footer.terms": "Terms of service",
   },
   fr: {
     // Navigation
@@ -147,6 +150,9 @@ const translations = {
 
     // Footer
     "footer.rights": "Tous droits réservés.",
+    "footer.legalNotice": "Mentions légales",
+    "footer.privacy": "Politique de confidentialité",
+    "footer.terms": "CGV et prestations",
   },
 }
 
