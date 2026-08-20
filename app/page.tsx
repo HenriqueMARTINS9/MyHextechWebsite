@@ -306,6 +306,7 @@ export default function Portfolio() {
                 <SkillBadge name="Flutterflow" level={90} />
                 <SkillBadge name="Tailwind CSS" level={85} />
                 <SkillBadge name="Vue" level={80} />
+                <SkillBadge name="Nuxt" level={80} />
                 <SkillBadge name="WebFlow" level={80} />
                 <SkillBadge name="Angular" level={75} />
                 <SkillBadge name="Flutter" level={70} />
