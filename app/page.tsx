@@ -345,6 +345,30 @@ export default function Portfolio() {
               </div>
             </div>
 
+            {/* Networks, Linux & Virtualization */}
+            <div className="space-y-6">
+              <SectionSubHeading
+                title={language === "fr" ? "Réseaux, Linux & Virtualisation" : "Networking, Linux & Virtualization"}
+              />
+              <div className="grid justify-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillBadge name="Linux (Debian / Ubuntu)" level={85} />
+                <SkillBadge name="TCP/IP & modèle OSI" level={85} />
+                <SkillBadge name="IPv4 / IPv6" level={85} />
+                <SkillBadge name="Adressage & sous-réseaux" level={85} />
+                <SkillBadge name="Bash / Shell" level={80} />
+                <SkillBadge name="Administration Linux" level={80} />
+                <SkillBadge name="DNS & DHCP" level={80} />
+                <SkillBadge name="VLAN & switching" level={80} />
+                <SkillBadge name="Routage & NAT" level={80} />
+                <SkillBadge name="SSH & services réseau" level={80} />
+                <SkillBadge name="Pare-feu Linux" level={75} />
+                <SkillBadge name="Wireshark" level={75} />
+                <SkillBadge name="Cisco IOS" level={75} />
+                <SkillBadge name="VirtualBox" level={80} />
+                <SkillBadge name="VMware" level={75} />
+              </div>
+            </div>
+
             {/* IA */}
             <div className="space-y-6">
               <SectionSubHeading title="IA (Python)" />
