@@ -13,8 +13,12 @@ import useMobile from "@/hooks/use-mobile"
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const isMobile = useMobile()
+  const resumeFile =
+    language === "fr"
+      ? "/CV_Henrique_Martins_2026_Ingenieur_Developpeur_FR.pdf"
+      : "/CV_Henrique_Martins_2026_Software_Engineer_EN.pdf"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,14 +93,14 @@ export function FloatingNav() {
                 </Link>
               ))}
               <LanguageToggle />
-              <Link href="https://www.linkedin.com/in/henrique-martins9/" target="_blank" rel="noopener noreferrer">
+              <a href={resumeFile} download>
                 <Button
                   size="sm"
                   className="ml-2 bg-gradient-to-r from-red-600 to-rose-700 hover:from-rose-700 hover:to-red-600 border-0"
                 >
                   {t("nav.resume")}
                 </Button>
-              </Link>
+              </a>
             </div>
           )}
         </div>
@@ -121,10 +125,7 @@ export function FloatingNav() {
                 {item.name}
               </Link>
             ))}
-            <a
-              href="/CV-HenriqueMARTINS-MyHextech-022626.pdf"
-              download="CV-HenriqueMARTINS-MyHextech-022626.pdf"
-            >
+            <a href={resumeFile} download>
               <Button className="mt-6 bg-gradient-to-r from-red-600 to-rose-700 hover:from-rose-700 hover:to-red-600 border-0">
                 {t("nav.resume")}
               </Button>

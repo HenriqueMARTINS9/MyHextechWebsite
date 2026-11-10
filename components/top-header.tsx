@@ -11,7 +11,11 @@ import { useLanguage } from "@/contexts/language-context"
 
 export function TopHeader() {
   const [isVisible, setIsVisible] = useState(true)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const resumeFile =
+    language === "fr"
+      ? "/CV_Henrique_Martins_2026_Ingenieur_Developpeur_FR.pdf"
+      : "/CV_Henrique_Martins_2026_Software_Engineer_EN.pdf"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,10 +107,7 @@ export function TopHeader() {
             <LanguageToggle />
 
             {/* Resume Button */}
-            <a
-              href="/CV-HenriqueMARTINS-MyHextech-022626.pdf"
-              download="CV-HenriqueMARTINS-MyHextech-022626.pdf"
-            >
+            <a href={resumeFile} download>
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-red-600 to-rose-700 hover:from-rose-700 hover:to-red-600 border-0"
