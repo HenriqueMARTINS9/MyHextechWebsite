@@ -1,7 +1,9 @@
 export const siteUrl = "https://www.myhextech.com"
-export const siteTitle = "MyHextech | Henrique MARTINS, développeur full-stack freelance"
+export const personName = "Henrique MARTINS"
+export const businessName = "MyHextech"
+export const siteTitle = `${personName} | ${businessName} - Développeur freelance`
 export const siteDescription =
-  "Henrique MARTINS, développeur freelance en Île-de-France : sites web, applications React et Next.js, solutions IA, mobile et 3D. Découvrez mes projets et contactez-moi."
+  `${personName}, fondateur de ${businessName} et développeur full-stack freelance en Île-de-France. Sites web, applications, IA et 3D : projets et contact.`
 
 export const socialProfiles = [
   "https://github.com/HenriqueMARTINS9",
@@ -14,7 +16,9 @@ export const profileStructuredData = {
     {
       "@type": "Person",
       "@id": `${siteUrl}/#henrique-martins`,
-      name: "Henrique MARTINS",
+      name: personName,
+      givenName: "Henrique",
+      familyName: "MARTINS",
       url: siteUrl,
       image: `${siteUrl}/images/henrique-portrait.jpg`,
       jobTitle: "Développeur full-stack freelance et ingénieur logiciel",
@@ -25,11 +29,13 @@ export const profileStructuredData = {
       knowsAbout: ["React", "Next.js", "TypeScript", "Développement web", "Applications mobiles", "Intelligence artificielle", "Unity", "Unreal Engine"],
       sameAs: socialProfiles,
       worksFor: { "@id": `${siteUrl}/#myhextech` },
+      mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
     },
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#myhextech`,
-      name: "MyHextech",
+      name: businessName,
+      description: `${businessName} est le nom commercial d'${personName}, développeur full-stack freelance en Île-de-France : développement web et mobile, solutions IA et expériences 3D.`,
       url: siteUrl,
       founder: { "@id": `${siteUrl}/#henrique-martins` },
       email: "henrique.mar@outlook.fr",
@@ -37,10 +43,11 @@ export const profileStructuredData = {
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
-      name: "MyHextech",
+      name: businessName,
+      alternateName: `${businessName} - ${personName}`,
       url: `${siteUrl}/`,
       inLanguage: "fr-FR",
-      publisher: { "@id": `${siteUrl}/#henrique-martins` },
+      publisher: { "@id": `${siteUrl}/#myhextech` },
     },
     {
       "@type": "ProfilePage",
@@ -51,6 +58,10 @@ export const profileStructuredData = {
       inLanguage: "fr-FR",
       isPartOf: { "@id": `${siteUrl}/#website` },
       mainEntity: { "@id": `${siteUrl}/#henrique-martins` },
+      about: [
+        { "@id": `${siteUrl}/#henrique-martins` },
+        { "@id": `${siteUrl}/#myhextech` },
+      ],
     },
   ],
 }

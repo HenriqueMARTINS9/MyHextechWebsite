@@ -2,16 +2,16 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import { LanguageProvider } from "@/contexts/language-context"
-import { siteDescription, siteTitle, siteUrl } from "@/lib/site"
+import { businessName, personName, siteDescription, siteTitle, siteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
-  applicationName: "MyHextech",
-  authors: [{ name: "Henrique MARTINS", url: siteUrl }],
-  creator: "Henrique MARTINS",
-  publisher: "MyHextech",
+  applicationName: businessName,
+  authors: [{ name: personName, url: siteUrl }],
+  creator: personName,
+  publisher: businessName,
   robots: {
     index: true,
     follow: true,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "MyHextech",
+    siteName: businessName,
     locale: "fr_FR",
     title: siteTitle,
     description: siteDescription,

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 import { getProjectCount, isFeaturedTechnology, projectTechnologies } from "../lib/project-technologies.ts"
-import { profileStructuredData, siteUrl, socialProfiles } from "../lib/site.ts"
+import { businessName, personName, profileStructuredData, siteDescription, siteTitle, siteUrl, socialProfiles } from "../lib/site.ts"
 
 test("featured skills are based on distinct displayed projects", () => {
   const expected = { React: 6, "Next.js": 3, TypeScript: 5, "Tailwind CSS": 4, AWS: 3, "Node.js": 2, Firebase: 2 }
@@ -62,4 +62,38 @@ test("structured data identifies the profile and its owner consistently", () => 
   assert.ok(entities.has(person.worksFor["@id"]))
   assert.ok(entities.has(page.isPartOf["@id"]))
   assert.equal(page.url, `${siteUrl}/`)
+})
+
+test("search and sharing copy associate the full name with the business", () => {
+  assert.ok(siteTitle.startsWith(personName))
+  for (const text of [siteTitle, siteDescription]) {
+    assert.ok(text.includes(personName))
+    assert.ok(text.includes(businessName))
+  }
+})
+
+test("the person's first and last names identify the profile owner", () => {
+  const person = profileStructuredData["@graph"].find((entity) => entity["@type"] === "Person")
+  assert.equal(person.givenName, "Henrique")
+  assert.equal(person.familyName, "MARTINS")
+  assert.equal(`${person.givenName} ${person.familyName}`, personName)
+  assert.equal(person.mainEntityOfPage["@id"], `${siteUrl}/#profile`)
+  assert.deepEqual(person.sameAs, socialProfiles)
+})
+
+test("the business, founder, website and profile use linked and distinct identities", () => {
+  const entities = new Map(profileStructuredData["@graph"].map((entity) => [entity["@type"], entity]))
+  const person = entities.get("Person")
+  const business = entities.get("Organization")
+  const website = entities.get("WebSite")
+  const page = entities.get("ProfilePage")
+  assert.equal(business.name, businessName)
+  assert.ok(business.description.includes(personName))
+  assert.equal(business.founder["@id"], person["@id"])
+  assert.equal(person.worksFor["@id"], business["@id"])
+  assert.equal(website.name, businessName)
+  assert.equal(website.publisher["@id"], business["@id"])
+  assert.ok(website.alternateName.includes(personName))
+  assert.deepEqual(page.about.map((entity) => entity["@id"]), [person["@id"], business["@id"]])
+  assert.equal(business.sameAs, undefined)
 })

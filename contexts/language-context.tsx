@@ -62,7 +62,7 @@ const translations = {
     "experience.subtitle": "My professional journey",
 
     // Contact Section
-    "contact.title": "Get In Touch",
+    "contact.title": "Contact Henrique MARTINS",
     "contact.subtitle": "Let's work together",
     "contact.info": "Contact Information",
     "contact.currentStatus": "Current Status",
@@ -142,7 +142,7 @@ const translations = {
     "experience.capmonde.description": "En apprentissage pour le BTS SNIR à l'ESIEE, j'ai travaillé comme informaticien.",
 
     // Contact Section
-    "contact.title": "Entrer en Contact",
+    "contact.title": "Contacter Henrique MARTINS",
     "contact.subtitle": "Travaillons ensemble",
     "contact.info": "Informations de Contact",
     "contact.currentStatus": "Statut Actuel",

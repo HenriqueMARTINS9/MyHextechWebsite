@@ -20,6 +20,7 @@ import { useLanguage } from "@/contexts/language-context"
 import { SectionSubHeading } from "@/components/section-sub-heading"
 import useMobile from "@/hooks/use-mobile"
 import { projectTechnologies } from "@/lib/project-technologies"
+import { businessName, personName } from "@/lib/site"
 
 export default function Portfolio() {
   const isMobile = useMobile()
@@ -126,11 +127,11 @@ export default function Portfolio() {
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600/20 to-rose-700/20 animate-pulse"></span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              <span className="block">{t("hero.greeting")}</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">
-                Henrique MARTINS
+            <h1 className="text-5xl md:text-7xl font-bold">
+              <span className="block break-words bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">
+                {personName}
               </span>
+              <span className="mt-3 block text-2xl font-medium text-zinc-200 md:text-3xl">{businessName}</span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-[600px]">{t("hero.description")}</p>
             <div className="flex flex-wrap gap-4 pt-4">
@@ -215,7 +216,7 @@ export default function Portfolio() {
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
                   src="/images/henrique-portrait.jpg"
-                  alt="Henrique MARTINS"
+                  alt={`${personName}, développeur freelance et fondateur de ${businessName}`}
                   loading="lazy"
                   decoding="async"
                   width={640}
@@ -236,8 +237,8 @@ export default function Portfolio() {
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
                   {language === "en"
-                    ? "I'm a Full-Stack Developer and Software Engineer specialized in creating modern web applications, immersive 3D experiences, and innovative digital solutions. My work spans from responsive websites and web applications (React, Next.js, TypeScript) to complex 3D projects (Unity, Unreal Engine), covering diverse industries from enterprise solutions (Simvia - EDF Group) to innovative platforms (Entrave, Virtualsomm) and gaming experiences."
-                    : "Je suis Développeur Full-Stack et Ingénieur Logiciel spécialisé dans la création d'applications web modernes, d'expériences 3D immersives et de solutions numériques innovantes. Mon travail s'étend des sites web et applications web responsives (React, Next.js, TypeScript) aux projets 3D complexes (Unity, Unreal Engine), couvrant des domaines variés allant des solutions d'entreprise (Simvia - Groupe EDF) aux plateformes innovantes (Entrave, Virtualsomm) et expériences de jeu."}
+                    ? "MyHextech is the business name of Henrique MARTINS, an ESIEE-qualified software engineer and freelance full-stack developer based in Île-de-France, France. I build websites and applications with React, Next.js and TypeScript, mobile applications, AI solutions and immersive 3D experiences. My projects include Simvia - EDF Group, Entrave, Virtualsomm, Wearevents and Point Japon Voyage."
+                    : "MyHextech est le nom commercial d'Henrique MARTINS, ingénieur logiciel diplômé de l'ESIEE et développeur full-stack freelance basé en Île-de-France. Je conçois des sites et applications web avec React, Next.js et TypeScript, des applications mobiles, des solutions IA et des expériences 3D immersives. Mes réalisations incluent Simvia - Groupe EDF, Entrave, Virtualsomm, Wearevents et Point Japon Voyage."}
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
                   {language === "en"

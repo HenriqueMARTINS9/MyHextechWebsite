@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Portfolio from "@/components/portfolio"
-import { profileStructuredData, siteDescription, siteTitle, siteUrl } from "@/lib/site"
+import { businessName, profileStructuredData, siteDescription, siteTitle, siteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: siteTitle,
@@ -11,10 +11,15 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     url: siteUrl,
-    siteName: "MyHextech",
+    siteName: businessName,
     locale: "fr_FR",
     firstName: "Henrique",
     lastName: "MARTINS",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
   },
 }
 
