@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -8,7 +9,7 @@ import { ProjectCard } from "@/components/project-card"
 import { SkillBadge } from "@/components/skill-badge"
 import { Timeline } from "@/components/timeline"
 import { ContactForm } from "@/components/contact-form"
-import { CreativeHero } from "@/components/creative-hero"
+import { BrandLogo } from "@/components/brand-logo"
 import { FloatingNav } from "@/components/floating-nav"
 import { TopHeader } from "@/components/top-header"
 import { MouseFollower } from "@/components/mouse-follower"
@@ -188,7 +189,15 @@ export default function Portfolio() {
           </div>
           {!isMobile && (
             <div className="flex justify-center">
-              <CreativeHero />
+              <Image
+                src="/images/myhextech-logo.png"
+                alt={`Logo ${businessName}, monogramme M argenté et H rouge métallisés`}
+                width={1254}
+                height={1254}
+                priority
+                sizes="(min-width: 1280px) 500px, 45vw"
+                className="h-auto w-full max-w-[500px] object-contain"
+              />
             </div>
           )}
         </div>
@@ -620,8 +629,7 @@ export default function Portfolio() {
         <div className="container flex flex-col xl:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">My</span>
-              <span className="text-white">Hextech</span>
+              <BrandLogo />
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
               © {new Date().getFullYear()} Henrique MARTINS. {t("footer.rights")}

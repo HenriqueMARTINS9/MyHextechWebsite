@@ -36,6 +36,13 @@ export const profileStructuredData = {
       "@id": `${siteUrl}/#myhextech`,
       name: businessName,
       description: `${businessName} est le nom commercial d'${personName}, développeur full-stack freelance en Île-de-France : développement web et mobile, solutions IA et expériences 3D.`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/images/myhextech-logo-512.png`,
+        width: 512,
+        height: 512,
+        caption: `Logo ${businessName}`,
+      },
       url: siteUrl,
       founder: { "@id": `${siteUrl}/#henrique-martins` },
       email: "henrique.mar@outlook.fr",

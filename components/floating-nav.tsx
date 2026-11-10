@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { LanguageToggle } from "@/components/language-toggle"
+import { BrandLogo } from "@/components/brand-logo"
 import { useLanguage } from "@/contexts/language-context"
 import useMobile from "@/hooks/use-mobile"
 
@@ -50,7 +51,7 @@ export function FloatingNav() {
   return (
     <>
       <motion.div
-        className={`fixed top-6 -translate-x-1/2 z-50 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"} ${isMobile ? "left-[40%]" : "left-1/2"}`}
+        className={`fixed top-6 left-1/2 max-w-[calc(100vw-2rem)] -translate-x-1/2 z-50 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3 }}
@@ -59,10 +60,9 @@ export function FloatingNav() {
           <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600/20 to-rose-700/20 rounded-full blur opacity-50"></div>
 
           {isMobile ? (
-            <div className="relative flex items-center justify-between left-4/10">
+            <div className="relative flex items-center justify-between gap-3">
               <Link href="/" className="font-bold text-lg">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">My</span>
-                <span className="text-white">Hextech</span>
+                <BrandLogo />
               </Link>
               <div className="flex items-center gap-2">
                 <LanguageToggle />
@@ -79,8 +79,7 @@ export function FloatingNav() {
           ) : (
             <div className="relative flex items-center gap-1">
               <Link href="/" className="font-bold text-lg mr-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">My</span>
-                <span className="text-white">Hextech</span>
+                <BrandLogo compact />
               </Link>
               {navItems.map((item) => (
                 <Link

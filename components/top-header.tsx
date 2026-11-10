@@ -7,6 +7,7 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { LanguageToggle } from "@/components/language-toggle"
+import { BrandLogo } from "@/components/brand-logo"
 import { useLanguage } from "@/contexts/language-context"
 
 export function TopHeader() {
@@ -50,13 +51,12 @@ export function TopHeader() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-bold text-xl">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">My</span>
-            <span className="text-white">Hextech</span>
+          <Link href="/" className="shrink-0 font-bold text-lg sm:text-xl">
+            <BrandLogo />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -69,10 +69,10 @@ export function TopHeader() {
           </nav>
 
           {/* Right side - Language toggle and social links */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
 
             {/* Social Links */}
-            <div className="hidden md:flex items-center space-x-2">
+            <div className="hidden xl:flex items-center space-x-2">
               <Link href="https://github.com/HenriqueMARTINS9" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"

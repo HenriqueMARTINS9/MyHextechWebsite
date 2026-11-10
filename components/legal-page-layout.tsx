@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import Link from "next/link"
 import { ArrowLeft, CalendarDays, ShieldCheck } from "lucide-react"
+import { BrandLogo } from "@/components/brand-logo"
 
 interface LegalPageLayoutProps {
   title: string
@@ -31,10 +32,9 @@ export function LegalPageLayout({
       </div>
 
       <header className="relative z-10 border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl">
-        <div className="container flex min-h-20 items-center justify-between gap-6 py-4">
+        <div className="container flex min-h-20 flex-wrap items-center justify-between gap-4 py-4">
           <Link href="/" className="text-xl font-bold" aria-label="Retour à l'accueil MyHextech">
-            <span className="bg-gradient-to-r from-red-400 to-rose-700 bg-clip-text text-transparent">My</span>
-            <span>Hextech</span>
+            <BrandLogo />
           </Link>
           <Link
             href="/"
