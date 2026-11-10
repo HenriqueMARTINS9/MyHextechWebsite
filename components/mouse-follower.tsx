@@ -54,7 +54,7 @@ export function MouseFollower() {
         <div className="relative">
           {/* Outer glow */}
           <motion.div
-            className="absolute inset-0 w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 blur-sm"
+            className="absolute inset-0 w-4 h-4 rounded-full bg-gradient-to-r from-red-400 to-rose-400 blur-sm"
             animate={{
               scale: isClicking ? 1.5 : 1,
               opacity: isClicking ? 0.8 : 0.6,
@@ -64,7 +64,7 @@ export function MouseFollower() {
 
           {/* Inner core */}
           <motion.div
-            className="relative w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg"
+            className="relative w-4 h-4 rounded-full bg-gradient-to-r from-red-600 to-rose-700 shadow-lg"
             animate={{
               scale: isClicking ? 0.8 : 1,
             }}
@@ -78,7 +78,7 @@ export function MouseFollower() {
 
       {/* Trailing particles */}
       <motion.div
-        className="fixed top-0 left-0 w-1 h-1 rounded-full bg-blue-400/40 pointer-events-none z-40"
+        className="fixed top-0 left-0 w-1 h-1 rounded-full bg-red-400/40 pointer-events-none z-40"
         animate={{
           x: mousePosition.x - 2,
           y: mousePosition.y - 2,
@@ -88,7 +88,7 @@ export function MouseFollower() {
       />
 
       <motion.div
-        className="fixed top-0 left-0 w-0.5 h-0.5 rounded-full bg-cyan-400/30 pointer-events-none z-30"
+        className="fixed top-0 left-0 w-0.5 h-0.5 rounded-full bg-rose-400/30 pointer-events-none z-30"
         animate={{
           x: mousePosition.x - 1,
           y: mousePosition.y - 1,

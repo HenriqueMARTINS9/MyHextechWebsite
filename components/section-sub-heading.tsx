@@ -20,7 +20,7 @@ export function SectionSubHeading({ title }: SectionSubHeadingProps) {
       </motion.h3>
 
       <motion.div
-        className="w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mt-6"
+        className="w-12 h-1 bg-gradient-to-r from-red-600 to-rose-700 rounded-full mx-auto mt-6"
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}

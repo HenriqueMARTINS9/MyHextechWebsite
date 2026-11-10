@@ -3,6 +3,12 @@ import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mentions-legales" },
+  openGraph: {
+    title: "Mentions légales | MyHextech",
+    description: "Mentions légales du site MyHextech édité par Henrique MARTINS, entrepreneur individuel.",
+    url: "/mentions-legales",
+  },
   title: "Mentions légales | MyHextech",
   description: "Mentions légales du site MyHextech édité par Henrique MARTINS, entrepreneur individuel.",
 }

@@ -3,6 +3,12 @@ import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/politique-de-confidentialite" },
+  openGraph: {
+    title: "Politique de confidentialité | MyHextech",
+    description: "Politique de confidentialité et de protection des données personnelles du site MyHextech.",
+    url: "/politique-de-confidentialite",
+  },
   title: "Politique de confidentialité | MyHextech",
   description: "Politique de confidentialité et de protection des données personnelles du site MyHextech.",
 }

@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { usePathname } from "next/navigation"
 
 type Language = "en" | "fr"
 
@@ -23,7 +24,7 @@ const translations = {
     // Hero Section
     "hero.subtitle": "Software Engineer & Full-Stack Developer",
     "hero.greeting": "Hi, I'm",
-    "hero.description": "I design and build tailored digital experiences, blending code, creativity, and technical precision.",
+    "hero.description": "I'm Henrique MARTINS, freelance full-stack developer behind MyHextech, based in Île-de-France. I build websites, web and mobile applications, AI solutions and immersive 3D experiences.",
     "hero.viewProjects": "View Projects",
     "hero.contactMe": "Contact Me",
 
@@ -50,7 +51,7 @@ const translations = {
 
     // GitHub Section
     "github.title": "GitHub Activity",
-    "github.subtitle": "My contributions in the last year",
+    "github.subtitle": "My contributions over the last 12 months",
 
     // Projects Section
     "projects.title": "Featured Projects",
@@ -86,7 +87,7 @@ const translations = {
     "hero.subtitle": "Ingénieur Logiciel & Développeur Full-Stack",
     "hero.greeting": "Bonjour, je suis",
     "hero.description":
-      "J'imagine et développe des expériences numériques sur mesure, mêlant code, créativité et exigence technique.",
+      "Je suis Henrique MARTINS, développeur freelance full-stack sous MyHextech, basé en Île-de-France. Je conçois des sites web, des applications web et mobiles, des solutions IA et des expériences 3D immersives.",
     "hero.viewProjects": "Voir les Projets",
     "hero.contactMe": "Me Contacter",
 
@@ -113,7 +114,7 @@ const translations = {
 
     // GitHub Section
     "github.title": "Activité GitHub",
-    "github.subtitle": "Mes contributions de l'année dernière",
+    "github.subtitle": "Mes contributions sur les 12 derniers mois",
 
     // Projects Section
     "projects.title": "Projets en Vedette",
@@ -160,6 +161,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("fr")
+  const pathname = usePathname()
+
+  useEffect(() => {
+    document.documentElement.lang = pathname === "/" ? language : "fr"
+  }, [language, pathname])
 
   const t = (key: string): string => {
     return translations[language][key as keyof (typeof translations)["en"]] || key

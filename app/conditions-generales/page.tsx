@@ -3,6 +3,12 @@ import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/conditions-generales" },
+  openGraph: {
+    title: "Conditions générales de vente et de prestations | MyHextech",
+    description: "Conditions générales de vente et de prestations de services de MyHextech pour les clients professionnels.",
+    url: "/conditions-generales",
+  },
   title: "Conditions générales de vente et de prestations | MyHextech",
   description: "Conditions générales de vente et de prestations de services de MyHextech pour les clients professionnels.",
 }

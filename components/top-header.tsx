@@ -47,7 +47,7 @@ export function TopHeader() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="font-bold text-xl">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-600">My</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400">My</span>
             <span className="text-white">Hextech</span>
           </Link>
 
@@ -109,7 +109,7 @@ export function TopHeader() {
             >
               <Button
                 size="sm"
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 border-0"
+                className="bg-gradient-to-r from-red-600 to-rose-700 hover:from-rose-700 hover:to-red-600 border-0"
               >
                 {t("nav.resume")}
               </Button>
