@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -10,6 +9,7 @@ import { SkillBadge } from "@/components/skill-badge"
 import { Timeline } from "@/components/timeline"
 import { ContactForm } from "@/components/contact-form"
 import { BrandLogo } from "@/components/brand-logo"
+import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
 import { TopHeader } from "@/components/top-header"
 import { MouseFollower } from "@/components/mouse-follower"
@@ -189,15 +189,7 @@ export default function Portfolio() {
           </div>
           {!isMobile && (
             <div className="flex justify-center">
-              <Image
-                src="/images/myhextech-logo.png"
-                alt={`Logo ${businessName}, monogramme M argenté et H rouge métallisés`}
-                width={1254}
-                height={1254}
-                priority
-                sizes="(min-width: 1280px) 500px, 45vw"
-                className="h-auto w-full max-w-[500px] object-contain"
-              />
+              <CreativeHero />
             </div>
           )}
         </div>

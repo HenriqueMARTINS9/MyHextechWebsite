@@ -1,238 +1,145 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-
-const HERO_TEXT = "MyHextech"
-const MIN_FONT_SIZE = 88
-const MAX_FONT_SIZE = 150
-const TEXT_WIDTH_RATIO = 0.94
-const TEXT_HEIGHT_RATIO = 0.44
+import { useEffect, useRef, useState } from "react"
+import { useLanguage } from "@/contexts/language-context"
+import { sampleLogoParticles } from "@/lib/logo-particles"
 
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isReady, setIsReady] = useState(false)
+  const { language } = useLanguage()
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    const context = canvas?.getContext("2d")
+    if (!canvas || !context) return
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const logo = new window.Image()
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
+    let frame = 0
+    let disposed = false
+    let width = 0
+    let height = 0
+    let particles: { x: number; y: number; baseX: number; baseY: number; color: string; radius: number; phase: number }[] = []
+    const pointer = { x: 0, y: 0, active: false }
 
-    let devicePixelRatio: number
-    let animationFrameId: number
-    const particlesArray: Particle[] = []
-
-    // Set canvas dimensions
-    const setCanvasDimensions = () => {
-      devicePixelRatio = window.devicePixelRatio || 1
-      const rect = canvas.getBoundingClientRect()
-      const width = Math.max(1, Math.floor(rect.width))
-      const height = Math.max(1, Math.floor(rect.height))
-
-      canvas.width = Math.round(width * devicePixelRatio)
-      canvas.height = Math.round(height * devicePixelRatio)
-
-      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0)
-    }
-
-    const getTextLayout = (layoutContext: CanvasRenderingContext2D, canvasWidth: number, canvasHeight: number) => {
-      const maxTextWidth = canvasWidth * TEXT_WIDTH_RATIO
-      const maxTextHeight = canvasHeight * TEXT_HEIGHT_RATIO
-      let fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, Math.min(canvasWidth * 0.2, maxTextHeight)))
-
-      layoutContext.font = `bold ${fontSize}px Arial`
-
-      while (layoutContext.measureText(HERO_TEXT).width > maxTextWidth && fontSize > MIN_FONT_SIZE) {
-        fontSize -= 2
-        layoutContext.font = `bold ${fontSize}px Arial`
-      }
-
-      return {
-        fontSize,
-        particleStep: Math.max(7, Math.round(fontSize / 16)),
-        particleScale: fontSize / MAX_FONT_SIZE,
-      }
-    }
-
-    setCanvasDimensions()
-    window.addEventListener("resize", setCanvasDimensions)
-
-    // Mouse position
-    let mouseX = 0
-    let mouseY = 0
-    let targetX = 0
-    let targetY = 0
-
-    window.addEventListener("mousemove", (e) => {
-      const rect = canvas.getBoundingClientRect()
-      targetX = e.clientX - rect.left
-      targetY = e.clientY - rect.top
-    })
-
-    // Particle class
-    class Particle {
-      x: number
-      y: number
-      size: number
-      baseX: number
-      baseY: number
-      density: number
-      color: string
-      distance: number
-
-      constructor(x: number, y: number, particleScale: number) {
-        this.x = x
-        this.y = y
-        this.baseX = x
-        this.baseY = y
-        this.size = (Math.random() * 2.6 + 0.9) * particleScale
-        this.density = Math.random() * 30 + 1
-        this.distance = 0
-
-        const hue = Math.random() * 16 + 350
-        this.color = `hsl(${hue}, 70%, 60%)`
-      }
-
-      update() {
-        // Calculate distance between mouse and particle
-        const dx = mouseX - this.x
-        const dy = mouseY - this.y
-        this.distance = Math.sqrt(dx * dx + dy * dy)
-
-        const forceDirectionX = this.distance === 0 ? 0 : dx / this.distance
-        const forceDirectionY = this.distance === 0 ? 0 : dy / this.distance
-
-        const maxDistance = 100
-        const force = (maxDistance - this.distance) / maxDistance
-
-        if (this.distance < maxDistance) {
-          const directionX = forceDirectionX * force * this.density
-          const directionY = forceDirectionY * force * this.density
-
-          this.x -= directionX
-          this.y -= directionY
-        } else {
-          if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX
-            this.x -= dx / 10
-          }
-          if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY
-            this.y -= dy / 10
+    function draw(time: number) {
+      if (!context) return
+      context.clearRect(0, 0, width, height)
+      for (const particle of particles) {
+        const motion = reducedMotion.matches ? 0 : 1
+        const targetX = particle.baseX + Math.sin(time * 0.0007 + particle.phase) * 0.8 * motion
+        const targetY = particle.baseY + Math.cos(time * 0.0006 + particle.phase) * 0.8 * motion
+        particle.x += (targetX - particle.x) * 0.08
+        particle.y += (targetY - particle.y) * 0.08
+        if (pointer.active && motion) {
+          const dx = particle.x - pointer.x
+          const dy = particle.y - pointer.y
+          const distance = Math.hypot(dx, dy)
+          if (distance > 0 && distance < 85) {
+            const force = (1 - distance / 85) * 5
+            particle.x += (dx / distance) * force
+            particle.y += (dy / distance) * force
           }
         }
-      }
-
-      draw() {
-        if (!ctx) return
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.fill()
+        context.beginPath()
+        context.fillStyle = particle.color
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+        context.fill()
       }
     }
 
-    function init() {
-      if (!canvas || !ctx) return
-      particlesArray.length = 0
+    function animate(time: number) {
+      draw(time)
+      frame = requestAnimationFrame(animate)
+    }
 
+    function initialize() {
+      if (disposed || !canvas || !context || !logo.naturalWidth) return
       const rect = canvas.getBoundingClientRect()
-      const canvasWidth = Math.max(1, Math.floor(rect.width))
-      const canvasHeight = Math.max(1, Math.floor(rect.height))
-      const textCanvas = document.createElement("canvas")
-      const textContext = textCanvas.getContext("2d")
+      width = Math.max(1, Math.round(rect.width))
+      height = Math.max(1, Math.round(rect.height))
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = Math.round(width * pixelRatio)
+      canvas.height = Math.round(height * pixelRatio)
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0)
 
-      if (!textContext) return
-
-      textCanvas.width = canvasWidth
-      textCanvas.height = canvasHeight
-
-      // Create text
-      const { particleScale, particleStep } = getTextLayout(textContext, canvasWidth, canvasHeight)
-      textContext.fillStyle = "white"
-      textContext.textAlign = "center"
-      textContext.textBaseline = "middle"
-      textContext.fillText(HERO_TEXT, canvasWidth / 2, canvasHeight / 2)
-
-      // Get image data
-      const textCoordinates = textContext.getImageData(0, 0, canvasWidth, canvasHeight)
-
-      // Clear canvas
-      ctx.clearRect(0, 0, canvasWidth, canvasHeight)
-
-      // Create particles based on text pixels
-      for (let y = 0; y < textCoordinates.height; y += particleStep) {
-        for (let x = 0; x < textCoordinates.width; x += particleStep) {
-          if (textCoordinates.data[y * 4 * textCoordinates.width + x * 4 + 3] > 128) {
-            const positionX = x
-            const positionY = y
-            particlesArray.push(new Particle(positionX, positionY, particleScale))
-          }
-        }
-      }
+      const mask = document.createElement("canvas")
+      mask.width = width
+      mask.height = height
+      const maskContext = mask.getContext("2d", { willReadFrequently: true })
+      if (!maskContext) return
+      const scale = Math.min(width / logo.naturalWidth, height / logo.naturalHeight) * 0.94
+      const logoWidth = logo.naturalWidth * scale
+      const logoHeight = logo.naturalHeight * scale
+      maskContext.drawImage(logo, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
+      const step = Math.max(5, Math.ceil(Math.sqrt(width * height / 4000)))
+      particles = sampleLogoParticles(maskContext.getImageData(0, 0, width, height), step).map((point) => ({
+        ...point,
+        baseX: point.x,
+        baseY: point.y,
+        radius: step * (0.17 + Math.random() * 0.11),
+        phase: Math.random() * Math.PI * 2,
+      }))
+      draw(0)
+      setIsReady(particles.length > 0)
     }
 
-    init()
-
-    // Animation loop
-    const animate = () => {
-      if (!canvas || !ctx) return
+    const movePointer = (event: PointerEvent) => {
       const rect = canvas.getBoundingClientRect()
-      const canvasWidth = Math.max(1, Math.floor(rect.width))
-      const canvasHeight = Math.max(1, Math.floor(rect.height))
-      ctx.clearRect(0, 0, canvasWidth, canvasHeight)
-
-      // Smooth mouse following
-      mouseX += (targetX - mouseX) * 0.1
-      mouseY += (targetY - mouseY) * 0.1
-
-      // Draw connections
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update()
-        particlesArray[i].draw()
-
-        // Draw connections
-        for (let j = i; j < particlesArray.length; j++) {
-          const dx = particlesArray[i].x - particlesArray[j].x
-          const dy = particlesArray[i].y - particlesArray[j].y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 30) {
-            ctx.beginPath()
-            ctx.strokeStyle = `rgba(248, 113, 113, ${0.2 - distance / 150})`
-            ctx.lineWidth = 0.5
-            ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
-            ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
-            ctx.stroke()
-          }
-        }
-      }
-
-      animationFrameId = requestAnimationFrame(animate)
+      pointer.x = event.clientX - rect.left
+      pointer.y = event.clientY - rect.top
+      pointer.active = true
     }
-
-    animate()
-
-    // Handle window resize
-    window.addEventListener("resize", init)
+    const resetPointer = () => { pointer.active = false }
+    const syncMotion = () => {
+      cancelAnimationFrame(frame)
+      if (reducedMotion.matches) {
+        for (const particle of particles) {
+          particle.x = particle.baseX
+          particle.y = particle.baseY
+        }
+        draw(0)
+      } else frame = requestAnimationFrame(animate)
+    }
+    const resizeObserver = new ResizeObserver(initialize)
+    resizeObserver.observe(canvas)
+    canvas.addEventListener("pointermove", movePointer)
+    canvas.addEventListener("pointerleave", resetPointer)
+    reducedMotion.addEventListener("change", syncMotion)
+    logo.onload = () => {
+      if (disposed) return
+      initialize()
+      syncMotion()
+    }
+    logo.src = "/images/myhextech-logo-512.png"
 
     return () => {
-      cancelAnimationFrame(animationFrameId)
-      window.removeEventListener("resize", setCanvasDimensions)
-      window.removeEventListener("resize", init)
+      disposed = true
+      logo.onload = null
+      cancelAnimationFrame(frame)
+      resizeObserver.disconnect()
+      canvas.removeEventListener("pointermove", movePointer)
+      canvas.removeEventListener("pointerleave", resetPointer)
+      reducedMotion.removeEventListener("change", syncMotion)
     }
   }, [])
 
   return (
-    <motion.div
-      className="w-full sm:h-[360px] md:h-[420px] xl:h-[460px] 2xl:h-[500px] relative"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+    <div
+      role="img"
+      aria-label={language === "fr" ? "Logo MyHextech en nuage de points, M argenté et H rouge" : "MyHextech particle logo, silver M and red H"}
+      className="relative h-[320px] w-full sm:h-[360px] md:h-[420px] xl:h-[460px] 2xl:h-[500px]"
     >
-      <canvas ref={canvasRef} className="w-full h-full" style={{ display: "block" }} />
-    </motion.div>
+      <img
+        src="/images/myhextech-logo-512.png"
+        alt=""
+        aria-hidden="true"
+        width={512}
+        height={512}
+        className={`absolute inset-0 h-full w-full object-contain ${isReady ? "invisible" : "visible"}`}
+      />
+      <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 block h-full w-full" />
+    </div>
   )
 }

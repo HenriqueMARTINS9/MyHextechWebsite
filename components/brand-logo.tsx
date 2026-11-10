@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { businessName } from "@/lib/site"
 
 export function BrandLogo({ compact = false }: { compact?: boolean }) {
   return (
@@ -11,7 +10,9 @@ export function BrandLogo({ compact = false }: { compact?: boolean }) {
         height={40}
         className="h-10 w-10 shrink-0 object-contain"
       />
-      <span className={compact ? "sr-only" : "text-white"}>{businessName}</span>
+      <span className={compact ? "sr-only lg:not-sr-only" : undefined}>
+        <span className="text-white">My</span><span className="text-red-400">Hextech</span>
+      </span>
     </span>
   )
 }
